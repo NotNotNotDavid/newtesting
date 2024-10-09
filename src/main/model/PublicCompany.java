@@ -17,22 +17,16 @@ public class PublicCompany {
         //stub
     }
  
-    //MODIFIES: this
-    //EFFECTS: returns the share price of the given company
-    public int getSharePrice(String companyName){
+    public int getSharePrice(){
         return 0; //stub
     }
  
- 
-    //MODIFIES: this
-    //EFFECTS: returns the number of remaining shares of the given company
-    public int getSharesLeft(String companyName){
+    public int getSharesLeft(){
         return 0; //stub
     }
 
-    //EFFECTS: returns the company name
     public String getName(){
-        return "";
+        return ""; //stub
     }
 
 
