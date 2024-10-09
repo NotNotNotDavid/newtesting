@@ -18,7 +18,7 @@ public class PrivateCompanyTest{
     public void testConstructor(){
         assertEquals("Dogo Railway", testPrivateCompany.getName());
         assertEquals(50, testPrivateCompany.getPrice());
-        assertEquals(false, testPrivateCompany.isBought());
+        assertEquals(true, testPrivateCompany.isBought());
     }
 
 }
