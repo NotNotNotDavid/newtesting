@@ -2,6 +2,10 @@ package model;
 
 public class PublicCompany {
 
+    String companyName;
+    int sharePrice;
+    int sharesLeft;
+
     /*
     * REQUIRES:
     * conpanyName has a non-zero length;
@@ -13,20 +17,22 @@ public class PublicCompany {
     * amount of shares bought is set to sharesBought;
     * amount of shares left is set to sharesLeft;
     */
-    public PublicCompany(String companyName, int price, int sharesLeft){
-        //stub
+    public PublicCompany(String companyName, int sharePrice, int sharesLeft){
+        this.companyName = companyName;
+        this.sharePrice = sharePrice;
+        this.sharesLeft = sharesLeft;
     }
  
     public int getSharePrice(){
-        return 0; //stub
+        return sharePrice;
     }
  
     public int getSharesLeft(){
-        return 0; //stub
+        return sharesLeft;
     }
 
     public String getName(){
-        return ""; //stub
+        return companyName;
     }
 
 
