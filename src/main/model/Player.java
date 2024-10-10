@@ -9,13 +9,22 @@ public class Player {
     String playerName;
     ArrayList<PublicCompany> publicCompaniesOwnership;
     ArrayList<PrivateCompany> privateCompaniesOwnership;
+    ArrayList<Transactions> playerTransactions;
     
-
+    /*
+    * REQUIRES:
+    * playerName has a non-zero length;
+    * balance >= 0
+    *
+    * EFFECTS:
+    * creates a new player with name, balance and both private and public company ownership
+    */
     public Player(String playerName, int balance){ 
        this.playerName = playerName;
        this.balance = balance;
        publicCompaniesOwnership = new ArrayList<PublicCompany>();
        privateCompaniesOwnership = new ArrayList<PrivateCompany>();
+       playerTransactions = new ArrayList<Transactions>();
 
     }
  
@@ -27,14 +36,19 @@ public class Player {
        return balance;
     }
 
+    //EFFECTS: returns the transactions that this player made
+    public ArrayList<Transactions> getTransactions(){
+        return null; //stub TODO
+    }
+
     //EFFECTS: returns the list of owned publicCompanies
     public ArrayList<PublicCompany> getPublicCompanies(){
-       return publicCompaniesOwnership; //stub
+       return publicCompaniesOwnership; 
     }
 
     //EFFECTS: returns the list of owned privateCompanies
     public ArrayList<PrivateCompany> getPrivateCompanies(){
-       return privateCompaniesOwnership; //stub
+       return privateCompaniesOwnership;
     }
 
     //REQUIRES:  and company.sharesLeft > 0

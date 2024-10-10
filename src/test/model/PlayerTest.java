@@ -16,6 +16,7 @@ public class PlayerTest {
     PrivateCompany testPrivateCompany3;
     ArrayList<PublicCompany> testPublicCompaniesList;
     ArrayList<PrivateCompany> testPrivateCompaniesList;
+    ArrayList<Transactions> testPlayerTransactionsList;
 
 
     @BeforeEach
@@ -28,6 +29,7 @@ public class PlayerTest {
         testPrivateCompany3 = new PrivateCompany("test3", 400, false);
         testPublicCompaniesList = new ArrayList<PublicCompany>();
         testPrivateCompaniesList = new ArrayList<PrivateCompany>();
+        testPlayerTransactionsList = new ArrayList<Transactions>();
 
     }
 
@@ -145,6 +147,46 @@ public class PlayerTest {
 
     }
 
+    @Test
+    public void testBuyPublicTransaction(){
+        player1.buyPublicCompany(testPublicCompany1);
+        testPlayerTransactionsList.add(new Transactions(player1.getName(), testPublicCompany1.getSharePrice(), testPublicCompany1.getName(), "buy"));
+        assertEquals(testPlayerTransactionsList, player1.getTransactions());
+
+    }
+
+    @Test
+    public void testBuyPrivateTransaction(){
+        player1.buyPrivateCompany(testPrivateCompany1);
+        testPlayerTransactionsList.add(new Transactions(player1.getName(), testPrivateCompany1.getPrice(), testPrivateCompany1.getName(), "buy"));
+        assertEquals(testPlayerTransactionsList, player1.getTransactions());
+
+    }
+
+
+    @Test
+    public void testSellPublicTransaction(){
+        player1.buyPublicCompany(testPublicCompany1);
+        testPublicCompaniesList.add(testPublicCompany1);
+        testPlayerTransactionsList.add(new Transactions(player1.getName(), testPublicCompany1.getSharePrice(), testPublicCompany1.getName(), "buy"));
+        assertEquals(testPlayerTransactionsList, player1.getTransactions());
+        player1.buyPublicCompany(testPublicCompany1);
+        testPlayerTransactionsList.add(new Transactions(player1.getName(), testPublicCompany1.getSharePrice(), testPublicCompany1.getName(), "sell"));
+        assertEquals(testPlayerTransactionsList, player1.getTransactions());
+
+    }
+
+    @Test
+    public void testSellPrivateTransaction(){
+        player1.buyPrivateCompany(testPrivateCompany1);
+        testPrivateCompaniesList.add(testPrivateCompany1);
+        testPlayerTransactionsList.add(new Transactions(player1.getName(), testPrivateCompany1.getPrice(), testPrivateCompany1.getName(), "buy"));
+        assertEquals(testPlayerTransactionsList, player1.getTransactions());
+        player1.sellPrivateCompany(testPrivateCompany1);
+        testPlayerTransactionsList.add(new Transactions(player1.getName(), testPrivateCompany1.getPrice(), testPrivateCompany1.getName(), "sell"));
+        assertEquals(testPlayerTransactionsList, player1.getTransactions());
+
+    }
 
 }
 
