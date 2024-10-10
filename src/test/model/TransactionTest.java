@@ -15,7 +15,7 @@ public class TransactionTest {
     }
 
     @Test
-    public void testConstructor(){
+    public void testConstructor() {
         assertEquals("Jeff", testTransaction.getPlayerName());
         assertEquals(100, testTransaction.getPrice());
         assertEquals("Dogo Rail", testTransaction.getCompanyName());

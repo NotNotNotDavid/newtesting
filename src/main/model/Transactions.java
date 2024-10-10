@@ -1,6 +1,6 @@
 package model;
-import java.util.Objects;
 
+import java.util.Objects;
 
 public class Transactions {
 
@@ -8,47 +8,47 @@ public class Transactions {
     int price;
     String companyName;
     String action;
-    
-    /*
-    * REQUIRES:
-    * player company and action to have a non-zero length;
-    * EFFECTS:
-    * creates a transaction with the player's name, 
-    * the company it traded and what action it did with said company.
-    */
 
-    public Transactions(String player, int price, String company, String action){
+    /*
+     * REQUIRES:
+     * player company and action to have a non-zero length;
+     * EFFECTS:
+     * creates a transaction with the player's name,
+     * the company it traded and what action it did with said company.
+     */
+
+    public Transactions(String player, int price, String company, String action) {
         this.playerName = player;
         this.price = price;
         this.companyName = company;
         this.action = action;
     }
 
-    public String getPlayerName(){
+    public String getPlayerName() {
         return playerName;
     }
 
-    public String getCompanyName(){
+    public String getCompanyName() {
         return companyName;
     }
 
-    public String getAction(){
+    public String getAction() {
         return action;
     }
 
-    public int getPrice(){
+    public int getPrice() {
         return price;
     }
 
     // THIS PART IS LEARNED FROM OTHER SOURCES, SEE README FILE
     @Override
     public boolean equals(Object o) {
-        // If the object is compared with itself then return true  
-        if (o == this){
+        // If the object is compared with itself then return true
+        if (o == this) {
             return true;
-        } 
+        }
 
-        // If the object is compared with null then return false  
+        // If the object is compared with null then return false
         if (o == null) {
             return false;
         }
@@ -62,10 +62,10 @@ public class Transactions {
         Transactions t = (Transactions) o;
 
         // this line is to comapre all the different instances of objects
-        return price == t.price &&
-            Objects.equals(playerName, t.playerName) &&
-            Objects.equals(companyName, t.companyName) &&
-            Objects.equals(action, t.action);
-     }
+        return price == t.price 
+            && Objects.equals(playerName, t.playerName) 
+            && Objects.equals(companyName, t.companyName) 
+            && Objects.equals(action, t.action);
+    }
 
-} 
+}

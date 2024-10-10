@@ -7,34 +7,32 @@ public class PublicCompany {
     int sharesLeft;
 
     /*
-    * REQUIRES:
-    * conpanyName has a non-zero length;
-    * 10 >= sharesLeft >= 0.
-    *
-    * EFFECTS:
-    * name on public company is set to companyName;
-    * price of the public company is set to price;
-    * amount of shares bought is set to sharesBought;
-    * amount of shares left is set to sharesLeft;
-    */
-    public PublicCompany(String companyName, int sharePrice, int sharesLeft){
+     * REQUIRES:
+     * conpanyName has a non-zero length;
+     * 10 >= sharesLeft >= 0.
+     *
+     * EFFECTS:
+     * name on public company is set to companyName;
+     * price of the public company is set to price;
+     * amount of shares bought is set to sharesBought;
+     * amount of shares left is set to sharesLeft;
+     */
+    public PublicCompany(String companyName, int sharePrice, int sharesLeft) {
         this.companyName = companyName;
         this.sharePrice = sharePrice;
         this.sharesLeft = sharesLeft;
     }
- 
-    public int getSharePrice(){
+
+    public int getSharePrice() {
         return sharePrice;
     }
- 
-    public int getSharesLeft(){
+
+    public int getSharesLeft() {
         return sharesLeft;
     }
 
-    public String getName(){
+    public String getName() {
         return companyName;
     }
 
-
- 
 }
