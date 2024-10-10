@@ -13,6 +13,7 @@ public class PlayerTest {
     PublicCompany testPublicCompany2;
     PrivateCompany testPrivateCompany1;
     PrivateCompany testPrivateCompany2;
+    PrivateCompany testPrivateCompany3;
     ArrayList<PublicCompany> testPublicCompaniesList;
     ArrayList<PrivateCompany> testPrivateCompaniesList;
 
@@ -24,6 +25,7 @@ public class PlayerTest {
         testPublicCompany2 = new PublicCompany("Iyo Rail", 300, 5);
         testPrivateCompany1 = new PrivateCompany("Pill Rail", 50, false);
         testPrivateCompany2 = new PrivateCompany("Dogo Rail", 20, true);
+        testPrivateCompany3 = new PrivateCompany("test3", 400, false);
         testPublicCompaniesList = new ArrayList<PublicCompany>();
         testPrivateCompaniesList = new ArrayList<PrivateCompany>();
 
@@ -32,7 +34,7 @@ public class PlayerTest {
     @Test
     public void testConstructor(){
         assertEquals("Joe", player1.getName());
-        assertEquals(10000, player1.getBalance());
+        assertEquals(1000, player1.getBalance());
         assertEquals(testPublicCompaniesList, player1.getPublicCompanies());
         assertEquals(testPrivateCompaniesList, player1.getPrivateCompanies());
     }
@@ -70,7 +72,7 @@ public class PlayerTest {
     public void testBuyPrivateCompanyWhenAlreadyBought(){
         player1.buyPrivateCompany(testPrivateCompany2);
         assertEquals(testPrivateCompaniesList, player1.getPrivateCompanies());
-        assertTrue(testPrivateCompany1.isBought());
+        assertTrue(testPrivateCompany2.isBought());
     }
 
     @Test
@@ -88,7 +90,7 @@ public class PlayerTest {
         testPrivateCompaniesList.add(testPrivateCompany1);
         assertTrue(testPrivateCompany1.isBought());
         player1.buyPrivateCompany(testPrivateCompany1);
-        assertEquals(testPrivateCompaniesList, player1);
+        assertEquals(testPrivateCompaniesList, player1.getPrivateCompanies());
         assertTrue(testPrivateCompany1.isBought());
         assertEquals(950, player1.getBalance());
 
@@ -104,14 +106,43 @@ public class PlayerTest {
         assertEquals(10, testPublicCompany1.getSharesLeft());
     }
 
+    @Test 
+    public void testSellDifferentPublicCompany(){
+        player1.buyPublicCompany(testPublicCompany1);
+        testPublicCompaniesList.add(testPublicCompany1);
+        player1.buyPublicCompany(testPublicCompany2);
+        testPublicCompaniesList.add(testPublicCompany2);
+        player1.sellPublicCompany(testPublicCompany2);
+        testPublicCompaniesList.remove(1);
+        assertEquals(900, player1.getBalance());
+        assertEquals(9, testPublicCompany1.getSharesLeft());
+        assertEquals(5, testPublicCompany2.getSharesLeft());
+        assertEquals(testPublicCompaniesList, player1.getPublicCompanies());
+    }
+
     @Test
     public void testSellPrivateCompany(){
         player1.buyPrivateCompany(testPrivateCompany1);
         testPrivateCompaniesList.add(testPrivateCompany1);
         player1.sellPrivateCompany(testPrivateCompany1);
-        testPublicCompaniesList.remove(0);
+        testPrivateCompaniesList.remove(0);
         assertEquals(1000, player1.getBalance());
         assertFalse(testPrivateCompany1.isBought);
+    }
+
+    @Test
+    public void testSellDifferentPrivateCompany(){
+        player1.buyPrivateCompany(testPrivateCompany1);
+        testPrivateCompaniesList.add(testPrivateCompany1);
+        player1.buyPrivateCompany(testPrivateCompany3);
+        testPrivateCompaniesList.add(testPrivateCompany3);
+        player1.sellPrivateCompany(testPrivateCompany3);
+        testPrivateCompaniesList.remove(1);
+        assertEquals(testPrivateCompaniesList, player1.getPrivateCompanies());
+        assertEquals(950, player1.getBalance());
+        assertTrue(testPrivateCompany1.isBought);
+        assertFalse(testPrivateCompany3.isBought);
+
     }
 
 
