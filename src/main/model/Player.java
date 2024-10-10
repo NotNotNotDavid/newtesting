@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Player {
 
-    public Player(String playerName){ 
+    public Player(String playerName, int balance){ 
        //stub
     }
  
@@ -26,18 +26,21 @@ public class Player {
        return null; //stub
     }
 
+    //REQUIRES: company.getPrice() <= player.getBalance()
     //MODIFIES: this and the specified PublicCompany
     //EFFECTS: buys one share of the specified public company, company sharesBought++, decrease balance by sharePrice
     public void buyPublicCompany(PublicCompany company){
        //stub
     }
 
+    //REQUIRES: company.isBought() must be true
     //MODIFIES: this and the specified PublicCompany
     //EFFECTS: sells one share of the specified public company, company sharesBought--, increase balance by sharePrice
     public void sellPublicCompany(PublicCompany company){
        //stub
     }
 
+    //REQUIRES: company.getPrice() <= player.getBalance()
     //MODIFIES: this and the specified PrivateCompany
     /* EFFECTS: 
     sells one share of the specified private company, the company isBought status will be true.
@@ -47,6 +50,7 @@ public class Player {
        //stub
     }
 
+    //REQUIRES: company.getPrice() <= player.getBalance()
     //MODIFIES: this and the specified PrivateCompany
     /* EFFECTS: 
     sells one share of the specified private company, the company isBought status will be false.
