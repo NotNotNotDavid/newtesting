@@ -36,7 +36,7 @@ public class Transactions {
         return action;
     }
 
-    public int price(){
+    public int getPrice(){
         return price;
     }
 
