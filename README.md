@@ -23,6 +23,24 @@ It is inteded to be used on the side by people who are playing *Shikoku 1889*, m
 - As a user, I want to remove a certain tranaction from a transaction log.
 - As a user, I want to see the statistics on how popularly traded a certain public company is.
 
+## DISCLAMER AND SOURCES
+
+In the Transaction class, equals() is Overrided. In order to achieve the desired outcome, some sources were used to help me implement this method.
+
+Here are them below:
+
+https://www.geeksforgeeks.org/overriding-equals-method-in-java/
+https://stackoverflow.com/questions/8180430/how-to-override-equals-method-in-java
+
+These two links helped me in trying to understand what Overriding is.
+
+https://www.javatpoint.com/override-equals-method-in-java
+
+This link helped me in figuring out what to return.
+
+
+
+
 
 
 

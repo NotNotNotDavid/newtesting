@@ -38,7 +38,7 @@ public class Player {
 
     //EFFECTS: returns the transactions that this player made
     public ArrayList<Transactions> getTransactions(){
-        return null; //stub TODO
+        return playerTransactions; 
     }
 
     //EFFECTS: returns the list of owned publicCompanies
@@ -58,6 +58,7 @@ public class Player {
         publicCompaniesOwnership.add(company);
         balance -= company.getSharePrice();
         company.sharesLeft--;
+        playerTransactions.add(new Transactions(playerName, company.sharePrice, company.companyName, "buy"));
     }
 
     //REQUIRES: company.isBought() must be true and company must be within publicCompaniesOwnership
@@ -69,6 +70,7 @@ public class Player {
                 publicCompaniesOwnership.remove(i);
                 balance += company.getSharePrice();
                 company.sharesLeft++;
+                playerTransactions.add(new Transactions(playerName, company.sharePrice, company.companyName, "sell"));
             }
        }
     }
@@ -84,6 +86,7 @@ public class Player {
             privateCompaniesOwnership.add(company);
             balance -= company.getPrice();
             company.isBought = true;
+            playerTransactions.add(new Transactions(playerName, company.price, company.companyName, "buy"));
        }
     }
 
@@ -99,6 +102,8 @@ public class Player {
                 privateCompaniesOwnership.remove(i);
                 balance += company.getPrice();
                 company.isBought = false;
+                playerTransactions.add(new Transactions(playerName, company.price, company.companyName, "sell"));
+
             }
        }
     }

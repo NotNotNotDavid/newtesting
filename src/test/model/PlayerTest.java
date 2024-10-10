@@ -19,6 +19,7 @@ public class PlayerTest {
     ArrayList<Transactions> testPlayerTransactionsList;
 
 
+
     @BeforeEach
     public void runBefore(){
         player1 = new Player("Joe", 1000);
@@ -170,7 +171,7 @@ public class PlayerTest {
         testPublicCompaniesList.add(testPublicCompany1);
         testPlayerTransactionsList.add(new Transactions(player1.getName(), testPublicCompany1.getSharePrice(), testPublicCompany1.getName(), "buy"));
         assertEquals(testPlayerTransactionsList, player1.getTransactions());
-        player1.buyPublicCompany(testPublicCompany1);
+        player1.sellPublicCompany(testPublicCompany1);
         testPlayerTransactionsList.add(new Transactions(player1.getName(), testPublicCompany1.getSharePrice(), testPublicCompany1.getName(), "sell"));
         assertEquals(testPlayerTransactionsList, player1.getTransactions());
 
