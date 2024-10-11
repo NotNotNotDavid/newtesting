@@ -23,16 +23,28 @@ public class GameTest {
     @BeforeEach
     public void runBefore(){
         testGame = new Game();
+
+        listOfPlayers = new ArrayList<Player>();
+
+        listOfPublicCompanies = new ArrayList<PublicCompany>();
+        listOfPublicCompanies.add(Tosa);
+        listOfPublicCompanies.add(Iya);
+        listOfPublicCompanies.add(Awa);
+
+        listOfPrivateCompanies = new ArrayList<PrivateCompany>();
+        listOfPrivateCompanies.add(Dogo);
+        listOfPrivateCompanies.add(Uno);
+        listOfPrivateCompanies.add(Ehime);
         
     }
     @Test
     public void testGetListofPublicCompanies(){
-        assertEquals(listOfPublicCompanies, testGame.getListofPublicCompanies());;
+        assertEquals(listOfPublicCompanies, testGame.getListofPublicCompanies());
     }
 
     @Test
     public void testGetListofPrivateCompanies(){
-        assertEquals(listOfPrivateCompanies, testGame.getListofPrivateCompanies());;
+        assertEquals(listOfPrivateCompanies, testGame.getListofPrivateCompanies());
     }
 
     @Test 
