@@ -51,12 +51,12 @@ public class PublicCompany {
             return false;
         }
 
-        // Check if o is an instance of Transaction or not
+        // Check if o is an instance of public company or not
         if (getClass() != o.getClass()) {
             return false;
         }
 
-        // type casting o to Transactions to compare data members
+        // type casting o to public company to compare data members
         PublicCompany p = (PublicCompany) o;
 
         // this line is to comapre all the different instances of objects
@@ -66,6 +66,8 @@ public class PublicCompany {
         Objects.equals(companyName, p.companyName);
     }
 
+
+    // prints out public company in text form
     @Override
     public String toString() {
         return "Public Company [" + companyName + "]";

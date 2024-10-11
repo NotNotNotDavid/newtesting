@@ -126,7 +126,7 @@ public class LedgerApp {
     public void displayViewMenu() {
         System.out.println("Enter 't' to display the transaction list");
         System.out.println("Enter 'u' to buy a Public company");
-        System.out.println("Enter 'r' to buy a Private company"); 
+        System.out.println("Enter 'r' to buy a Private company");
         System.out.println("Enter 'l' to sell a Public company");
         System.out.println("Enter 'i' to sell a Private company");
         System.out.println("Enter 'b' to see player balance");
@@ -150,27 +150,27 @@ public class LedgerApp {
 
         Player currentPlayer = players.get(this.currentPlayerIndex);
         switch (input) {
-            case "a":
+            case "t":
                 displayTransactions(currentPlayer);
                 break;
-            case "b":
+            case "u":
                 buyPublicCompany(currentPlayer);
                 break;
             case "r":
                 buyPrivateCompany(currentPlayer);
                 break;
-            case "s":
+            case "l":
                 sellPublicCompany(currentPlayer);
                 break;
             case "i":
                 sellPrivateCompany(currentPlayer);
-            case "d":
+            case "b":
                 checkBalance(currentPlayer);
                 break;
-            case "l":
+            case "c":
                 checkPublicCompanyHoldings(currentPlayer);
                 break;
-            case "c":
+            case "e":
                 checkPrivateCompanyHoldings(currentPlayer);
                 break;
             case "n":
@@ -197,11 +197,11 @@ public class LedgerApp {
         System.out.println("Balance: " + player.getBalance());
     }
 
-    public void checkPublicCompanyHoldings(Player player){
+    public void checkPublicCompanyHoldings(Player player) {
         System.out.println(player.getPublicCompanies().toString());
     }
 
-    public void checkPrivateCompanyHoldings(Player player){
+    public void checkPrivateCompanyHoldings(Player player) {
         System.out.println(player.getPrivateCompanies().toString());
     }
 

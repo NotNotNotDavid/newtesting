@@ -62,12 +62,13 @@ public class Transactions {
         Transactions t = (Transactions) o;
 
         // this line is to comapre all the different instances of objects
-        return price == t.price 
-            && Objects.equals(playerName, t.playerName) 
-            && Objects.equals(companyName, t.companyName) 
-            && Objects.equals(action, t.action);
+        return price == t.price
+                && Objects.equals(playerName, t.playerName)
+                && Objects.equals(companyName, t.companyName)
+                && Objects.equals(action, t.action);
     }
 
+    // prints out Transactions in text form
     @Override
     public String toString() {
         return "Transaction[" +

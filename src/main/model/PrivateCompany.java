@@ -56,7 +56,7 @@ public class PrivateCompany {
             return false;
         }
 
-        // type casting o to Transactions to compare data members
+        // type casting o to private company to compare data members
         PrivateCompany p = (PrivateCompany) o;
 
         // this line is to comapre all the different instances of objects
@@ -66,6 +66,7 @@ public class PrivateCompany {
         Objects.equals(companyName, p.companyName);
     }   
 
+    // prints out private company in text form
     @Override
     public String toString() {
         return "Private Company [" + companyName + "]";
