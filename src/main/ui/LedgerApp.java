@@ -1,7 +1,10 @@
 package ui;
 
-
+import model.Game;
 import model.Player;
+import model.PrivateCompany;
+import model.PublicCompany;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -15,6 +18,7 @@ public class LedgerApp {
 
     private Scanner scanner;
     private boolean isProgramRunning;
+    private Game game;
 
     // EFFECTS: creates an instance of the LedgerApp console ui application
     public LedgerApp() {
@@ -39,6 +43,7 @@ public class LedgerApp {
         this.players = new ArrayList<>();
         this.scanner = new Scanner(System.in);
         this.isProgramRunning = true;
+        this.game = new Game();
     }
 
     // EFFECTS: displays and processes inputs for the main menu
@@ -50,18 +55,45 @@ public class LedgerApp {
 
     // EFFECTS: displays a list of commands that can be used in the main menu
     public void displayMenu() {
-        //stub
+        System.out.println("Please select an option:\n");
+        System.out.println("a: Add a new player");
+        System.out.println("v: View all players");
+        System.out.println("q: Exit the application");
+        printDivider();
     }
 
     // EFFECTS: processes the user's input in the main menu
     public void processMenuCommands(String input) {
-        //stub
+        printDivider();
+        switch (input) {
+            case "a":
+                addNewPlayer();
+                break;
+            case "v":
+                viewPlayers();
+                break;
+            case "q":
+                quitApplication();
+                break;
+            default:
+                System.out.println("Invalid option inputted. Please try again.");
+        }
+        printDivider();
     }
 
     // MODIFIES: this
     // EFFECTS: adds a player to the list of players
     public void addNewPlayer() {
-        //stub
+        System.out.println("Please enter the player's name:");
+        String playerName = this.scanner.nextLine();
+
+        System.out.println("\nPlease enter starting balance");
+        int startingBalance = this.scanner.nextInt();
+
+        Player player = new Player(playerName, startingBalance);
+
+        this.players.add(player);
+        System.out.println("\nNew player successfully created!");
     }
 
     // MODIFIES: this
@@ -92,7 +124,17 @@ public class LedgerApp {
 
     // EFFECTS: displays a list of commands that can be used in the view player menu
     public void displayViewMenu() {
-        //stub
+        System.out.println("Enter 't' to display the transaction list");
+        System.out.println("Enter 'u' to buy a Public company");
+        System.out.println("Enter 'r' to buy a Private company"); 
+        System.out.println("Enter 'l' to sell a Public company");
+        System.out.println("Enter 'i' to sell a Private company");
+        System.out.println("Enter 'b' to see player balance");
+        System.out.println("Enter 'c' to check holdings of public companies");
+        System.out.println("Enter 'e' to check holdings of private companies");
+        System.out.println("Enter 'm' to move to the next player.");
+        System.out.println("Enter 'n' to move to the previous player.");
+        System.out.println("Enter 'q' to return to the menu.");
     }
 
     // EFFECTS: displays the given player
@@ -104,42 +146,147 @@ public class LedgerApp {
     // MODIFIES: this
     // EFFECTS: processes the user's input in the view flashcards menu
     public void handleViewCommands(String input, List<Player> players) {
-        //stub
+        System.out.print("\n");
+
+        Player currentPlayer = players.get(this.currentPlayerIndex);
+        switch (input) {
+            case "a":
+                displayTransactions(currentPlayer);
+                break;
+            case "b":
+                buyPublicCompany(currentPlayer);
+                break;
+            case "r":
+                buyPrivateCompany(currentPlayer);
+                break;
+            case "s":
+                sellPublicCompany(currentPlayer);
+                break;
+            case "i":
+                sellPrivateCompany(currentPlayer);
+            case "d":
+                checkBalance(currentPlayer);
+                break;
+            case "l":
+                checkPublicCompanyHoldings(currentPlayer);
+                break;
+            case "c":
+                checkPrivateCompanyHoldings(currentPlayer);
+                break;
+            case "n":
+                getNextPlayer(players);
+                break;
+            case "p":
+                getPreviousPlayer();
+                break;
+            case "q":
+                System.out.println("Returning to the menu...");
+                break;
+            default:
+                System.out.println("Invalid option inputted. Please try again.");
+        }
     }
 
     // EFFECTS: displays all the transactions that the player made
     public void displayTransactions(Player player) {
-        //stub
+        System.out.println("Answer: " + player.getTransactions().toString());
     }
 
     // EFFECTS: displays the balance of the player
     public void checkBalance(Player player) {
-        //stub
+        System.out.println("Balance: " + player.getBalance());
+    }
+
+    public void checkPublicCompanyHoldings(Player player){
+        System.out.println(player.getPublicCompanies().toString());
+    }
+
+    public void checkPrivateCompanyHoldings(Player player){
+        System.out.println(player.getPrivateCompanies().toString());
     }
 
     // MODIFIES: company, player
     // EFFECTS: player buys the given public company then returns to player page
     public void buyPublicCompany(Player player) {
-        //stub
+
+        System.out.println("Please enter the company name");
+        String input1 = "";
+        input1 = this.scanner.nextLine();
+
+        ArrayList<PublicCompany> list = this.game.getListofPublicCompanies();
+
+        for (PublicCompany company : list) {
+            if (company.getName().equalsIgnoreCase(input1)) {
+                player.buyPublicCompany(company);
+                System.out.println("Player " + player.getName() + " bought " + company.getName() + " at $"
+                        + company.getSharePrice() + "!");
+                return; // return back to player page
+            }
+        }
+
     }
 
-
+    // REQUIRES: PrivateCompany chosen isBought is false
     // MODIFIES: company, player
     // EFFECTS: player buys the given private company then returns to player page
     public void buyPrivateCompany(Player player) {
-        //stub
+
+        System.out.println("Please enter the company name");
+        String input1 = "";
+        input1 = this.scanner.nextLine();
+
+        ArrayList<PrivateCompany> list = this.game.getListofPrivateCompanies();
+
+        for (PrivateCompany company : list) {
+            if (company.getName().equalsIgnoreCase(input1)) {
+                player.buyPrivateCompany(company);
+                System.out.println("Player " + player.getName() + " bought " + company.getName() +
+                        " at $" + company.getPrice() + " !");
+                return; // go back to menu
+            }
+        }
     }
 
+    // REQUIRES: PrivateCompany chosen isBought is true
     // MODIFIES: company, player
     // EFFECTS: player sells the given public company then returns to player page
     public void sellPublicCompany(Player player) {
-        //stub
+
+        System.out.println("Please enter the company name");
+        String input1 = "";
+        input1 = this.scanner.nextLine();
+
+        ArrayList<PublicCompany> list = this.game.getListofPublicCompanies();
+
+        for (PublicCompany company : list) {
+            if (company.getName().equalsIgnoreCase(input1)) {
+                player.sellPublicCompany(company);
+                System.out.println("Player " + player.getName() + " bought " + company.getName() + "at $"
+                        + company.getSharePrice() + " !");
+                return; // go back to menu
+            }
+        }
+
     }
 
     // MODIFIES: company, player
     // EFFECTS: player sell the given private company then returns to player page
     public void sellPrivateCompany(Player player) {
-        //stub
+
+        System.out.println("Please enter the company name");
+        String input1 = "";
+        input1 = this.scanner.nextLine();
+
+        ArrayList<PrivateCompany> list = this.game.getListofPrivateCompanies();
+
+        for (PrivateCompany company : list) {
+            if (company.getName().equalsIgnoreCase(input1)) {
+                player.sellPrivateCompany(company);
+                System.out.println("Player " + player.getName() + " bought " + company.getName() +
+                        " at $" + company.getPrice() + " !");
+                return;
+            }
+        }
     }
 
     // MODIFIES: this
