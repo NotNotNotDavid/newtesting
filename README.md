@@ -17,9 +17,10 @@ It is inteded to be used on the side by people who are playing *Shikoku 1889*, m
 - As a user, I want to view the total amount of money left in the game.
 - As a user, I want to see how many shares of a public company has left (out of 10) and their stock price.
 - As a user, I want to see which private company each player owns. 
+- As a user, I want to see which public company each player owns. 
 - As a user, I want to see the value of shares for each company.
 - As a user, I want to be able to add each transaction (buying and selling shares and private companies) into a transaction log.
-- As a user, I want to be able to view the transaction log.
+- As a user, I want to be able to view the transaction log for each player.
 - As a user, I want to remove a certain tranaction from a transaction log.
 - As a user, I want to see the statistics on how popularly traded a certain public company is.
 
