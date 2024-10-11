@@ -68,4 +68,11 @@ public class Transactions {
             && Objects.equals(action, t.action);
     }
 
+    @Override
+    public String toString() {
+        return "Transaction[" +
+                "Player: " + playerName + ", Price: " + price +
+                ", Company: " + companyName + ", Action: " + action + "]";
+    }
+
 }
