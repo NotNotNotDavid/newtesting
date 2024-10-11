@@ -117,4 +117,8 @@ public class Player {
         }
     }
 
+    public void addTransaction(PublicCompany company){
+        
+    }
+
 }

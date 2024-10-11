@@ -1,5 +1,8 @@
 package model;
 
+import java.util.Objects;
+
+
 public class PrivateCompany {
 
     String companyName;
@@ -34,5 +37,33 @@ public class PrivateCompany {
     public boolean isBought() {
         return isBought;
     }
+
+    // THIS PART IS LEARNED FROM OTHER SOURCES, SEE README FILE
+    @Override
+    public boolean equals(Object o) {
+        // If the object is compared with itself then return true
+        if (o == this) {
+            return true;
+        }
+
+        // If the object is compared with null then return false
+        if (o == null) {
+            return false;
+        }
+
+        // Check if o is an instance of Transaction or not
+        if (getClass() != o.getClass()) {
+            return false;
+        }
+
+        // type casting o to Transactions to compare data members
+        PrivateCompany p = (PrivateCompany) o;
+
+        // this line is to comapre all the different instances of objects
+        return 
+        price == p.price &&
+        isBought == p.isBought &&
+        Objects.equals(companyName, p.companyName);
+    }   
 
 }
