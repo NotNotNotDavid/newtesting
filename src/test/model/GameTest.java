@@ -1,13 +1,13 @@
 package model;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-
 public class GameTest {
-    
+
     private Game testGame;
     ArrayList<Player> listOfPlayers;
     PublicCompany Tosa = new PublicCompany("Tosa Rail", 100, 10);
@@ -21,7 +21,7 @@ public class GameTest {
     ArrayList<PrivateCompany> listOfPrivateCompanies;
 
     @BeforeEach
-    public void runBefore(){
+    public void runBefore() {
         testGame = new Game();
 
         listOfPlayers = new ArrayList<Player>();
@@ -29,85 +29,86 @@ public class GameTest {
         listOfPublicCompanies = new ArrayList<PublicCompany>();
         listOfPublicCompanies.add(Tosa);
         listOfPublicCompanies.add(Iya);
-        listOfPublicCompanies.add(Awa); 
+        listOfPublicCompanies.add(Awa);
 
         listOfPrivateCompanies = new ArrayList<PrivateCompany>();
         listOfPrivateCompanies.add(Dogo);
         listOfPrivateCompanies.add(Uno);
         listOfPrivateCompanies.add(Ehime);
-        
+
     }
+
     @Test
-    public void testGetListofPublicCompanies(){
+    public void testGetListofPublicCompanies() {
         assertEquals(listOfPublicCompanies, testGame.getListofPublicCompanies());
     }
 
     @Test
-    public void testGetListofPrivateCompanies(){
+    public void testGetListofPrivateCompanies() {
         assertEquals(listOfPrivateCompanies, testGame.getListofPrivateCompanies());
     }
 
-    @Test 
-    public void testGetListofPlayers(){
+    @Test
+    public void testGetListofPlayers() {
         assertEquals(listOfPlayers, testGame.getListOfPlayers());
     }
 
     @Test
-    public void testEqualGame(){
+    public void testEqualGame() {
         assertTrue(testGame.equals(testGame));
     }
 
     @Test
-    public void testNullEqualGame(){
+    public void testNullEqualGame() {
         assertFalse(testGame.equals(null));
     }
 
     @Test
-    public void testOtherNotEqualGame(){
+    public void testOtherNotEqualGame() {
         assertFalse(testGame.equals(3));
     }
 
     @Test
-    public void testOtherEqualsGame(){
+    public void testOtherEqualsGame() {
         Game testGame2 = new Game();
         assertTrue(testGame.equals(testGame2));
     }
 
     @Test
-    public void testEachInstanceEqual(){
+    public void testEachInstanceEqual() {
         Game testGame2 = new Game();
         assertTrue(testGame.getListOfPlayers().equals(testGame2.getListOfPlayers()));
     }
 
-    @Test 
-    public void testNotEqualOtherl(){
+    @Test
+    public void testNotEqualOtherl() {
         assertFalse(testGame.equals(0));
     }
-    
-    @Test 
-    public void testNotEqualNull(){
+
+    @Test
+    public void testNotEqualNull() {
         assertFalse(testGame.equals(null));
     }
 
     @Test
-    public void testNotEqualListOfPlayer(){
+    public void testNotEqualListOfPlayer() {
         Game testGameBad = new Game();
         testGameBad.getListOfPlayers().add(null);
         assertFalse(testGame.equals(testGameBad));
     }
 
     @Test
-    public void testNotEqualListOfPublicCompanies(){
+    public void testNotEqualListOfPublicCompanies() {
         Game testGameBad = new Game();
         testGameBad.getListofPublicCompanies().add(Awa);
         assertFalse(testGame.equals(testGameBad));
     }
 
     @Test
-    public void testNotEqualListOfPrivateCompanies(){
+    public void testNotEqualListOfPrivateCompanies() {
         Game testGameBad = new Game();
         testGameBad.getListofPrivateCompanies().add(Dogo);
         assertFalse(testGame.equals(testGameBad));
     }
-    
+
 }

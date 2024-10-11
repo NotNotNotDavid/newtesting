@@ -23,49 +23,49 @@ public class TransactionTest {
     }
 
     @Test
-    public void testEquals(){
+    public void testEquals() {
         assertTrue(testTransaction.equals(testTransaction));
     }
 
     @Test
-    public void testNotEqualsPlayerName(){
+    public void testNotEqualsPlayerName() {
         Transactions transactionBad = new Transactions("Bobby", 100, "Dogo Rail", "buy");
         assertFalse(testTransaction.equals(transactionBad));
     }
 
     @Test
-    public void testNotEqualsPrice(){
+    public void testNotEqualsPrice() {
         Transactions transactionBad = new Transactions("Jeff", 40, "Dogo Rail", "buy");
         assertFalse(testTransaction.equals(transactionBad));
     }
 
     @Test
-    public void testNotEqualsCompanyName(){
+    public void testNotEqualsCompanyName() {
         Transactions transactionBad = new Transactions("Jeff", 100, "Iya Rail", "buy");
         assertFalse(testTransaction.equals(transactionBad));
     }
 
     @Test
-    public void testNotEqualsAction(){
+    public void testNotEqualsAction() {
         Transactions transactionBad = new Transactions("Jeff", 100, "Dogo Rail", "sell");
         assertFalse(testTransaction.equals(transactionBad));
     }
 
     @Test
-    public void testNotEqualOther(){
+    public void testNotEqualOther() {
         assertFalse(testTransaction.equals(99));
     }
 
     @Test
-    public void testNotEqualNull(){
+    public void testNotEqualNull() {
         assertFalse(testTransaction.equals(null));
     }
 
-
     @Test
-    public void testToString(){
+    public void testToString() {
         assertEquals("Transaction[" + "Player: " + testTransaction.getPlayerName()
-        + ", Price: " + testTransaction.getPrice() + ", Company: " + 
-        testTransaction.getCompanyName() + ", Action: " + testTransaction.getAction() + "]", testTransaction.toString());
+                + ", Price: " + testTransaction.getPrice() + ", Company: " +
+                testTransaction.getCompanyName() + ", Action: " + testTransaction.getAction() + "]",
+                testTransaction.toString());
     }
 }
