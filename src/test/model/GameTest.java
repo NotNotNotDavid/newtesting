@@ -29,7 +29,7 @@ public class GameTest {
         listOfPublicCompanies = new ArrayList<PublicCompany>();
         listOfPublicCompanies.add(Tosa);
         listOfPublicCompanies.add(Iya);
-        listOfPublicCompanies.add(Awa);
+        listOfPublicCompanies.add(Awa); 
 
         listOfPrivateCompanies = new ArrayList<PrivateCompany>();
         listOfPrivateCompanies.add(Dogo);
@@ -52,6 +52,62 @@ public class GameTest {
         assertEquals(listOfPlayers, testGame.getListOfPlayers());
     }
 
+    @Test
+    public void testEqualGame(){
+        assertTrue(testGame.equals(testGame));
+    }
 
+    @Test
+    public void testNullEqualGame(){
+        assertFalse(testGame.equals(null));
+    }
+
+    @Test
+    public void testOtherNotEqualGame(){
+        assertFalse(testGame.equals(3));
+    }
+
+    @Test
+    public void testOtherEqualsGame(){
+        Game testGame2 = new Game();
+        assertTrue(testGame.equals(testGame2));
+    }
+
+    @Test
+    public void testEachInstanceEqual(){
+        Game testGame2 = new Game();
+        assertTrue(testGame.getListOfPlayers().equals(testGame2.getListOfPlayers()));
+    }
+
+    @Test 
+    public void testNotEqualOtherl(){
+        assertFalse(testGame.equals(0));
+    }
+    
+    @Test 
+    public void testNotEqualNull(){
+        assertFalse(testGame.equals(null));
+    }
+
+    @Test
+    public void testNotEqualListOfPlayer(){
+        Game testGameBad = new Game();
+        testGameBad.getListOfPlayers().add(null);
+        assertFalse(testGame.equals(testGameBad));
+    }
+
+    @Test
+    public void testNotEqualListOfPublicCompanies(){
+        Game testGameBad = new Game();
+        testGameBad.getListofPublicCompanies().add(Awa);
+        assertFalse(testGame.equals(testGameBad));
+    }
+
+    @Test
+    public void testNotEqualListOfPrivateCompanies(){
+        Game testGameBad = new Game();
+        testGameBad.getListofPrivateCompanies().add(Dogo);
+        assertFalse(testGame.equals(testGameBad));
+    }
     
 }
