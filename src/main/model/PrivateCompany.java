@@ -66,4 +66,10 @@ public class PrivateCompany {
         Objects.equals(companyName, p.companyName);
     }   
 
+    @Override
+    public String toString() {
+        return "Private Company [" + companyName + "]";
+    }
+
+
 }

@@ -65,4 +65,10 @@ public class PublicCompany {
         sharesLeft == p.sharesLeft &&
         Objects.equals(companyName, p.companyName);
     }
+
+    @Override
+    public String toString() {
+        return "Public Company [" + companyName + "]";
+    }
+
 }
