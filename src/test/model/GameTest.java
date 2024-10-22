@@ -10,14 +10,14 @@ public class GameTest {
 
     private Game testGame;
     ArrayList<Player> listOfPlayers;
-    PublicCompany Tosa = new PublicCompany("Tosa Rail", 100, 10);
-    PublicCompany Iya = new PublicCompany("Iya Rail", 100, 10);
-    PublicCompany Awa = new PublicCompany("Awa Rail", 100, 10);
+    PublicCompany tosa = new PublicCompany("Tosa Rail", 100, 10);
+    PublicCompany iya = new PublicCompany("Iya Rail", 100, 10);
+    PublicCompany awa = new PublicCompany("Awa Rail", 100, 10);
     ArrayList<PublicCompany> listOfPublicCompanies;
 
-    PrivateCompany Dogo = new PrivateCompany("Dogo Rail", 60, false);
-    PrivateCompany Uno = new PrivateCompany("Uno Rail", 100, false);
-    PrivateCompany Ehime = new PrivateCompany("Ehime Rail", 40, false);
+    PrivateCompany dogo = new PrivateCompany("Dogo Rail", 60, false);
+    PrivateCompany uno = new PrivateCompany("Uno Rail", 100, false);
+    PrivateCompany ehime = new PrivateCompany("Ehime Rail", 40, false);
     ArrayList<PrivateCompany> listOfPrivateCompanies;
 
     @BeforeEach
@@ -27,14 +27,14 @@ public class GameTest {
         listOfPlayers = new ArrayList<Player>();
 
         listOfPublicCompanies = new ArrayList<PublicCompany>();
-        listOfPublicCompanies.add(Tosa);
-        listOfPublicCompanies.add(Iya);
-        listOfPublicCompanies.add(Awa);
+        listOfPublicCompanies.add(tosa);
+        listOfPublicCompanies.add(iya);
+        listOfPublicCompanies.add(awa);
 
         listOfPrivateCompanies = new ArrayList<PrivateCompany>();
-        listOfPrivateCompanies.add(Dogo);
-        listOfPrivateCompanies.add(Uno);
-        listOfPrivateCompanies.add(Ehime);
+        listOfPrivateCompanies.add(dogo);
+        listOfPrivateCompanies.add(uno);
+        listOfPrivateCompanies.add(ehime);
 
     }
 
@@ -100,14 +100,14 @@ public class GameTest {
     @Test
     public void testNotEqualListOfPublicCompanies() {
         Game testGameBad = new Game();
-        testGameBad.getListofPublicCompanies().add(Awa);
+        testGameBad.getListofPublicCompanies().add(awa);
         assertFalse(testGame.equals(testGameBad));
     }
 
     @Test
     public void testNotEqualListOfPrivateCompanies() {
         Game testGameBad = new Game();
-        testGameBad.getListofPrivateCompanies().add(Dogo);
+        testGameBad.getListofPrivateCompanies().add(dogo);
         assertFalse(testGame.equals(testGameBad));
     }
 
