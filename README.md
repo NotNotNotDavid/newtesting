@@ -23,6 +23,8 @@ It is inteded to be used on the side by people who are playing *Shikoku 1889*, m
 - As a user, I want to be able to view the transaction log for each player.
 - As a user, I want to remove a certain tranaction from a transaction log.
 - As a user, I want to see the statistics on how popularly traded a certain public company is.
+- As a user, I want to be able to save my ledger as a game state to file
+- As a user, I want to be able to load one of my saved ladgers from file
 
 ## DISCLAMER AND SOURCES
 
