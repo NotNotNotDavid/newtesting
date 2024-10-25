@@ -2,7 +2,11 @@ package model;
 
 import java.util.Objects;
 
-public class Transactions {
+import org.json.JSONObject;
+
+import persistence.Writable;
+
+public class Transactions implements Writable {
 
     String playerName;
     int price;
@@ -74,6 +78,16 @@ public class Transactions {
         return "Transaction[" +
                 "Player: " + playerName + ", Price: " + price +
                 ", Company: " + companyName + ", Action: " + action + "]";
+    }
+
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("playerName", playerName);
+        json.put("price", price);
+        json.put("companyName", companyName);
+        json.put("action", action);
+        return json;
     }
 
 }
