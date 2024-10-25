@@ -28,6 +28,11 @@ It is inteded to be used on the side by people who are playing *Shikoku 1889*, m
 
 ## DISCLAMER AND SOURCES
 
+For the persistence package, the implementation and structure is heavily inspired by the JsonSerializationDemo:
+It is denoted with this note on the top of the classes:
+// Referenced from the JsonSerialization Demo
+// https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo
+
 In the Transaction class, equals() is Overrided. In order to achieve the desired outcome, some sources were used to help me implement this method.
 
 Here are them below:
