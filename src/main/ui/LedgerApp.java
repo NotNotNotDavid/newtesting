@@ -4,7 +4,11 @@ import model.Game;
 import model.Player;
 import model.PrivateCompany;
 import model.PublicCompany;
+import persistence.JsonReader;
+import persistence.JsonWriter;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -13,6 +17,7 @@ import java.util.Scanner;
 
 // A Ledger application that allows the user to add and see transactions made by different players
 public class LedgerApp {
+     private static final String JSON_STORE = "./data/game.json";
     private List<Player> players;
     private int currentPlayerIndex = 0;
 
@@ -20,8 +25,13 @@ public class LedgerApp {
     private boolean isProgramRunning;
     private Game game;
 
+    private JsonWriter jsonWriter;
+    private JsonReader jsonReader;
+
     // EFFECTS: creates an instance of the LedgerApp console ui application
-    public LedgerApp() {
+    public LedgerApp() throws FileNotFoundException{
+        jsonWriter = new JsonWriter(JSON_STORE);
+        jsonReader = new JsonReader(JSON_STORE);
         runLedger();
     }
 
@@ -35,15 +45,20 @@ public class LedgerApp {
         while (this.isProgramRunning) {
             handleMenu();
         }
+
     }
 
     // MODIFIES: this
     // EFFECTS: initializes the application with the starting values
     public void init() {
+
         this.players = new ArrayList<>();
         this.scanner = new Scanner(System.in);
         this.isProgramRunning = true;
         this.game = new Game();
+        game.addAllCompanies();
+
+
     }
 
     // EFFECTS: displays and processes inputs for the main menu
@@ -56,6 +71,8 @@ public class LedgerApp {
     // EFFECTS: displays a list of commands that can be used in the main menu
     public void displayMenu() {
         System.out.println("Please select an option:\n");
+        System.out.println("l: Load a game");
+        System.out.println("s: Save the game");
         System.out.println("a: Add a new player");
         System.out.println("v: View all players");
         System.out.println("q: Exit the application");
@@ -66,6 +83,12 @@ public class LedgerApp {
     public void processMenuCommands(String input) {
         printDivider();
         switch (input) {
+            case "l":
+                loadGame();
+                break;
+            case "s":
+                saveGame();
+                break;
             case "a":
                 addNewPlayer();
                 break;
@@ -82,6 +105,31 @@ public class LedgerApp {
     }
 
     // MODIFIES: this
+    // EFFECTS: loads game from file
+    private void loadGame() {
+        try {
+            game = jsonReader.read();
+            System.out.println("Loaded game from " + JSON_STORE);
+        } catch (IOException e) {
+            System.out.println("Unable to read from file: " + JSON_STORE);
+        }
+        
+        // players = game.getListOfPlayers();
+    }
+
+    // EFFECTS: saves the game to file
+    private void saveGame() {
+        try {
+            jsonWriter.open();
+            jsonWriter.write(game);
+            jsonWriter.close();
+            System.out.println("Saved game to" + JSON_STORE);
+        } catch (FileNotFoundException e) {
+            System.out.println("Unable to write to file: " + JSON_STORE);
+        }
+    }
+
+    // MODIFIES: this
     // EFFECTS: adds a player to the list of players
     public void addNewPlayer() {
         System.out.println("Please enter the player's name:");
@@ -93,13 +141,15 @@ public class LedgerApp {
         Player player = new Player(playerName, startingBalance);
 
         this.players.add(player);
+        game.getListOfPlayers().add(player);
+
         System.out.println("\nNew player successfully created!");
     }
 
     // MODIFIES: this
     // EFFECTS: displays all player one at a time
     public void viewPlayers() {
-        displayGivenPlayers(this.players);
+        displayGivenPlayers(game.getListOfPlayers());
     }
 
     // MODIFIES: this
@@ -173,10 +223,10 @@ public class LedgerApp {
             case "e":
                 checkPrivateCompanyHoldings(currentPlayer);
                 break;
-            case "n":
+            case "m":
                 getNextPlayer(players);
                 break;
-            case "p":
+            case "n":
                 getPreviousPlayer();
                 break;
             case "q":
@@ -261,7 +311,7 @@ public class LedgerApp {
         for (PublicCompany company : list) {
             if (company.getName().equalsIgnoreCase(input1)) {
                 player.sellPublicCompany(company);
-                System.out.println("Player " + player.getName() + " bought " + company.getName() + "at $"
+                System.out.println("Player " + player.getName() + " sold " + company.getName() + " at $"
                         + company.getSharePrice() + " !");
                 return; // go back to menu
             }
@@ -282,7 +332,7 @@ public class LedgerApp {
         for (PrivateCompany company : list) {
             if (company.getName().equalsIgnoreCase(input1)) {
                 player.sellPrivateCompany(company);
-                System.out.println("Player " + player.getName() + " bought " + company.getName() +
+                System.out.println("Player " + player.getName() + " sold " + company.getName() +
                         " at $" + company.getPrice() + " !");
                 return;
             }

@@ -1,0 +1,95 @@
+{
+    "privateCompanies": [
+        {
+            "privateCompanyName": "Dogo Rail",
+            "price": 60,
+            "isBought": true
+        },
+        {
+            "privateCompanyName": "Uno Rail",
+            "price": 100,
+            "isBought": false
+        },
+        {
+            "privateCompanyName": "Ehime Rail",
+            "price": 40,
+            "isBought": false
+        }
+    ],
+    "players": [
+        {
+            "publicCompaniesOwnership": [
+                {
+                    "sharePrice": 100,
+                    "publicCompanyName": "Tosa Rail",
+                    "sharesLeft": 7
+                },
+                {
+                    "sharePrice": 100,
+                    "publicCompanyName": "Tosa Rail",
+                    "sharesLeft": 7
+                }
+            ],
+            "balance": 480,
+            "playerName": "Joey",
+            "transactions": [
+                {
+                    "playerName": "Joey",
+                    "price": 100,
+                    "companyName": "Tosa Rail",
+                    "action": "buy"
+                },
+                {
+                    "playerName": "Joey",
+                    "price": 100,
+                    "companyName": "Tosa Rail",
+                    "action": "buy"
+                },
+                {
+                    "playerName": "Joey",
+                    "price": 60,
+                    "companyName": "Dogo Rail",
+                    "action": "buy"
+                }
+            ],
+            "privateCompaniesOwnership": [{
+                "privateCompanyName": "Dogo Rail",
+                "price": 60,
+                "isBought": true
+            }]
+        },
+        {
+            "publicCompaniesOwnership": [{
+                "sharePrice": 100,
+                "publicCompanyName": "Tosa Rail",
+                "sharesLeft": 7
+            }],
+            "balance": 9899,
+            "playerName": "Bobby",
+            "transactions": [{
+                "playerName": "Bobby",
+                "price": 100,
+                "companyName": "Tosa Rail",
+                "action": "buy"
+            }],
+            "privateCompaniesOwnership": []
+        }
+    ],
+    "publicCompanies": [
+        {
+            "sharePrice": 100,
+            "publicCompanyName": "Tosa Rail",
+            "sharesLeft": 7
+        },
+        {
+            "sharePrice": 100,
+            "publicCompanyName": "Iya Rail",
+            "sharesLeft": 10
+        },
+        {
+            "sharePrice": 100,
+            "publicCompanyName": "Awa Rail",
+            "sharesLeft": 10
+        }
+    ]
+}
