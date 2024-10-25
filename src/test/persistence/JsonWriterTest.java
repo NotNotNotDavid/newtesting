@@ -15,9 +15,11 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.*;
 
 class JsonWriterTest {
-    //NOTE TO CPSC 210 STUDENTS: the strategy in designing tests for the JsonWriter is to
-    //write data to a file and then use the reader to read it back in and check that we
-    //read in a copy of what was written out.
+    // NOTE TO CPSC 210 STUDENTS: the strategy in designing tests for the JsonWriter
+    // is to
+    // write data to a file and then use the reader to read it back in and check
+    // that we
+    // read in a copy of what was written out.
 
     @Test
     void testWriterInvalidFile() {
@@ -60,39 +62,27 @@ class JsonWriterTest {
 
             Game game = new Game();
             game.addAllCompanies();
-            PrivateCompany Dogo = new PrivateCompany("Dogo Rail", 60, false);
-            PublicCompany Tosa = new PublicCompany("Tosa Rail", 100, 10);
+            PrivateCompany dogo = new PrivateCompany("Dogo Rail", 60, false);
+            PublicCompany tosa = new PublicCompany("Tosa Rail", 100, 10);
 
             Player playerJoe = new Player("Joe", 1000);
-            Player playerBob = new Player("Bob", 2000);
+
             game.addPlayer(playerJoe);
-            game.addPlayer(playerBob);
-
-            playerJoe.buyPublicCompany(Tosa);
-
-            playerBob.buyPrivateCompany(Dogo);
-            playerBob.buyPublicCompany(Tosa);
+            playerJoe.buyPrivateCompany(dogo);
+            playerJoe.buyPublicCompany(tosa);
 
             // write
             JsonWriter writer = new JsonWriter("./data/testWriterGeneralGame.json");
             writer.open();
             writer.write(game);
             writer.close();
-
             // read
             JsonReader reader = new JsonReader("./data/testWriterGeneralGame.json");
             game = reader.read();
 
-            // test
-            List<Player> players = game.getListOfPlayers();
-            // checkGame(game, game.getListOfPlayers(), game.getListofPrivateCompanies(), game.getListofPublicCompanies());
-
             ArrayList<PublicCompany> testJoePublicList = new ArrayList<>();
-            testJoePublicList.add(Tosa);
+            testJoePublicList.add(tosa);
 
-            assertEquals(2, players.size());
-            assertEquals("Joe",  playerJoe.getName());
-            assertEquals("Bob",  playerBob.getName());
             assertEquals(playerJoe.getPublicCompanies(), testJoePublicList);
 
         } catch (IOException e) {

@@ -105,17 +105,6 @@ public class JsonReader {
         }
     }
 
-    // MODIFIES: game
-    // EFFECTS: parses public companies from JSON object and adds them to the game
-    private void addPrivateCompanies(Game game, JSONObject jsonObject) {
-        JSONArray jsonArray = jsonObject.getJSONArray("privateCompanies");
-        for (Object json : jsonArray) {
-            JSONObject nextCompany = (JSONObject) json;
-            PrivateCompany privateCompany = parsePrivateCompany(nextCompany);
-            game.addPrivateCompany(privateCompany);
-        }
-    }
-
     // MODIFIES: player
     // EFFECTS: parses public companies from JSON object and adds them to the player
     private void addPublicCompanies(Player player, JSONObject jsonObject) {
@@ -127,6 +116,18 @@ public class JsonReader {
         // JSONObject nextCompany = (JSONObject) json;
 
         // }
+    }
+
+
+    // MODIFIES: game
+    // EFFECTS: parses public companies from JSON object and adds them to the game
+    private void addPrivateCompanies(Game game, JSONObject jsonObject) {
+        JSONArray jsonArray = jsonObject.getJSONArray("privateCompanies");
+        for (Object json : jsonArray) {
+            JSONObject nextCompany = (JSONObject) json;
+            PrivateCompany privateCompany = parsePrivateCompany(nextCompany);
+            game.addPrivateCompany(privateCompany);
+        }
     }
 
     // MODIFIES: player

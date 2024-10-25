@@ -8,23 +8,21 @@ import org.json.JSONObject;
 
 import persistence.Writable;
 
-public class Game implements Writable{
-    
+public class Game implements Writable {
+
     ArrayList<Player> listOfPlayers;
 
     ArrayList<PublicCompany> listOfPublicCompanies;
 
     ArrayList<PrivateCompany> listOfPrivateCompanies;
 
+    PublicCompany tosa = new PublicCompany("Tosa Rail", 100, 10);
+    PublicCompany iya = new PublicCompany("Iya Rail", 100, 10);
+    PublicCompany awa = new PublicCompany("Awa Rail", 100, 10);
 
-    PublicCompany Tosa = new PublicCompany("Tosa Rail", 100, 10);
-    PublicCompany Iya = new PublicCompany("Iya Rail", 100, 10);
-    PublicCompany Awa = new PublicCompany("Awa Rail", 100, 10);
-
-    PrivateCompany Dogo = new PrivateCompany("Dogo Rail", 60, false);
-    PrivateCompany Uno = new PrivateCompany("Uno Rail", 100, false);
-    PrivateCompany Ehime = new PrivateCompany("Ehime Rail", 40, false);
-
+    PrivateCompany dogo = new PrivateCompany("Dogo Rail", 60, false);
+    PrivateCompany uno = new PrivateCompany("Uno Rail", 100, false);
+    PrivateCompany ehime = new PrivateCompany("Ehime Rail", 40, false);
 
     // EFFECTS: creates a new game with lists of players, public companies and
     // private companies.
@@ -34,17 +32,16 @@ public class Game implements Writable{
         listOfPublicCompanies = new ArrayList<PublicCompany>();
         listOfPrivateCompanies = new ArrayList<PrivateCompany>();
 
-
     }
 
-    public void addAllCompanies(){
+    public void addAllCompanies() {
 
-        listOfPublicCompanies.add(Tosa);
-        listOfPublicCompanies.add(Iya);
-        listOfPublicCompanies.add(Awa);
-        listOfPrivateCompanies.add(Dogo);
-        listOfPrivateCompanies.add(Uno);
-        listOfPrivateCompanies.add(Ehime);
+        listOfPublicCompanies.add(tosa);
+        listOfPublicCompanies.add(iya);
+        listOfPublicCompanies.add(awa);
+        listOfPrivateCompanies.add(dogo);
+        listOfPrivateCompanies.add(uno);
+        listOfPrivateCompanies.add(ehime);
 
     }
 
@@ -53,7 +50,6 @@ public class Game implements Writable{
     public void addPlayer(Player player) {
         this.listOfPlayers.add(player);
     }
-
 
     public ArrayList<PublicCompany> getListofPublicCompanies() {
         return listOfPublicCompanies;
@@ -109,7 +105,7 @@ public class Game implements Writable{
         }
 
         JSONArray playersArray = new JSONArray();
-        for (Player player : listOfPlayers){
+        for (Player player : listOfPlayers) {
             playersArray.put(player.toJson());
         }
 
@@ -131,6 +127,5 @@ public class Game implements Writable{
     public void addPrivateCompany(PrivateCompany privateCompany) {
         this.listOfPrivateCompanies.add(privateCompany);
     }
-
 
 }

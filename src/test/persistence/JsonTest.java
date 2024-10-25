@@ -90,8 +90,6 @@
 // }
 
 
-
-// // protected void checkGame(Game game, ArrayList<Player> listOfPlayer, ArrayList<PrivateCompany> listOfPrivateCompany,
 // // ArrayList<PublicCompany> listOfPublicCompany) {
 
 // //    assertEquals(listOfPlayer, game.getListOfPlayers());

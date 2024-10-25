@@ -7,7 +7,7 @@ import org.json.JSONObject;
 
 import persistence.Writable;
 
-public class Player implements Writable{
+public class Player implements Writable {
 
     // static final int STARTINGBALANCE = 1000;
     int balance;

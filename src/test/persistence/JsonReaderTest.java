@@ -2,9 +2,6 @@ package persistence;
 
 import model.Game;
 import model.Player;
-import model.PrivateCompany;
-import model.PublicCompany;
-import model.Transactions;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;

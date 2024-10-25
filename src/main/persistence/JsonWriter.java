@@ -1,4 +1,5 @@
 package persistence;
+
 import model.Game;
 import model.Player;
 import model.PrivateCompany;

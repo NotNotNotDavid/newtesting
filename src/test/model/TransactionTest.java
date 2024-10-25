@@ -64,8 +64,8 @@ public class TransactionTest {
     @Test
     public void testToString() {
         assertEquals("Transaction[" + "Player: " + testTransaction.getPlayerName()
-                + ", Price: " + testTransaction.getPrice() + ", Company: " +
-                testTransaction.getCompanyName() + ", Action: " + testTransaction.getAction() + "]",
+                + ", Price: " + testTransaction.getPrice() + ", Company: " 
+                + testTransaction.getCompanyName() + ", Action: " + testTransaction.getAction() + "]",
                 testTransaction.toString());
     }
 }

@@ -22,15 +22,15 @@
                 {
                     "sharePrice": 100,
                     "publicCompanyName": "Tosa Rail",
-                    "sharesLeft": 7
+                    "sharesLeft": 6
                 },
                 {
                     "sharePrice": 100,
                     "publicCompanyName": "Tosa Rail",
-                    "sharesLeft": 7
+                    "sharesLeft": 6
                 }
             ],
-            "balance": 480,
+            "balance": 220,
             "playerName": "Joey",
             "transactions": [
                 {
@@ -59,19 +59,34 @@
             }]
         },
         {
-            "publicCompaniesOwnership": [{
-                "sharePrice": 100,
-                "publicCompanyName": "Tosa Rail",
-                "sharesLeft": 7
-            }],
-            "balance": 9899,
+            "publicCompaniesOwnership": [
+                {
+                    "sharePrice": 100,
+                    "publicCompanyName": "Tosa Rail",
+                    "sharesLeft": 6
+                },
+                {
+                    "sharePrice": 100,
+                    "publicCompanyName": "Tosa Rail",
+                    "sharesLeft": 6
+                }
+            ],
+            "balance": 9699,
             "playerName": "Bobby",
-            "transactions": [{
-                "playerName": "Bobby",
-                "price": 100,
-                "companyName": "Tosa Rail",
-                "action": "buy"
-            }],
+            "transactions": [
+                {
+                    "playerName": "Bobby",
+                    "price": 100,
+                    "companyName": "Tosa Rail",
+                    "action": "buy"
+                },
+                {
+                    "playerName": "Bobby",
+                    "price": 100,
+                    "companyName": "Tosa Rail",
+                    "action": "buy"
+                }
+            ],
             "privateCompaniesOwnership": []
         }
     ],
@@ -79,7 +94,7 @@
         {
             "sharePrice": 100,
             "publicCompanyName": "Tosa Rail",
-            "sharesLeft": 7
+            "sharesLeft": 6
         },
         {
             "sharePrice": 100,

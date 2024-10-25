@@ -6,7 +6,7 @@ import org.json.JSONObject;
 
 import persistence.Writable;
 
-public class PublicCompany implements Writable{
+public class PublicCompany implements Writable {
 
     String companyName;
     int sharePrice;
@@ -63,9 +63,9 @@ public class PublicCompany implements Writable{
         PublicCompany p = (PublicCompany) o;
 
         // this line is to comapre all the different instances of objects
-        return sharePrice == p.sharePrice &&
-                sharesLeft == p.sharesLeft &&
-                Objects.equals(companyName, p.companyName);
+        return sharePrice == p.sharePrice
+                && sharesLeft == p.sharesLeft
+                && Objects.equals(companyName, p.companyName);
     }
 
     // prints out public company in text form

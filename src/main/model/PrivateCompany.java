@@ -6,7 +6,7 @@ import org.json.JSONObject;
 
 import persistence.Writable;
 
-public class PrivateCompany implements Writable{
+public class PrivateCompany implements Writable {
 
     String companyName;
     int price;
@@ -41,7 +41,7 @@ public class PrivateCompany implements Writable{
         return isBought;
     }
 
-    public void setIsBought(boolean condition){
+    public void setIsBought(boolean condition) {
         isBought = condition;
     }
 
@@ -67,9 +67,9 @@ public class PrivateCompany implements Writable{
         PrivateCompany p = (PrivateCompany) o;
 
         // this line is to comapre all the different instances of objects
-        return price == p.price &&
-                isBought == p.isBought &&
-                Objects.equals(companyName, p.companyName);
+        return price == p.price 
+                && isBought == p.isBought 
+                && Objects.equals(companyName, p.companyName);
     }
 
     // prints out private company in text form

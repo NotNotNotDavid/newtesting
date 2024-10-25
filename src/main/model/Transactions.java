@@ -75,9 +75,9 @@ public class Transactions implements Writable {
     // prints out Transactions in text form
     @Override
     public String toString() {
-        return "Transaction[" +
-                "Player: " + playerName + ", Price: " + price +
-                ", Company: " + companyName + ", Action: " + action + "]";
+        return "Transaction[" 
+                + "Player: " + playerName + ", Price: " + price 
+                + ", Company: " + companyName + ", Action: " + action + "]";
     }
 
     @Override
