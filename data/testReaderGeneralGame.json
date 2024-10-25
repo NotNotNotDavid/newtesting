@@ -1,0 +1,52 @@
+{
+    "privateCompanies": [
+        {
+            "privateCompanyName": "Dogo Rail",
+            "price": 60,
+            "isBought": false
+        },
+        {
+            "privateCompanyName": "Uno Rail",
+            "price": 100,
+            "isBought": false
+        },
+        {
+            "privateCompanyName": "Ehime Rail",
+            "price": 40,
+            "isBought": false
+        }
+    ],
+    "players": [
+        {
+            "publicCompaniesOwnership": [],
+            "balance": 1000,
+            "playerName": "Joe",
+            "transactions": [],
+            "privateCompaniesOwnership": []
+        },
+        {
+            "publicCompaniesOwnership": [],
+            "balance": 2000,
+            "playerName": "Bob",
+            "transactions": [],
+            "privateCompaniesOwnership": []
+        }
+    ],
+    "publicCompanies": [
+        {
+            "sharePrice": 100,
+            "publicCompanyName": "Tosa Rail",
+            "sharesLeft": 10
+        },
+        {
+            "sharePrice": 100,
+            "publicCompanyName": "Iya Rail",
+            "sharesLeft": 10
+        },
+        {
+            "sharePrice": 100,
+            "publicCompanyName": "Awa Rail",
+            "sharesLeft": 10
+        }
+    ]
+}

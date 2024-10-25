@@ -1,0 +1,82 @@
+{
+    "privateCompanies": [
+        {
+            "privateCompanyName": "Dogo Rail",
+            "price": 60,
+            "isBought": false
+        },
+        {
+            "privateCompanyName": "Uno Rail",
+            "price": 100,
+            "isBought": false
+        },
+        {
+            "privateCompanyName": "Ehime Rail",
+            "price": 40,
+            "isBought": false
+        }
+    ],
+    "players": [
+        {
+            "publicCompaniesOwnership": [{
+                "sharePrice": 100,
+                "publicCompanyName": "Tosa Rail",
+                "sharesLeft": 8
+            }],
+            "balance": 900,
+            "playerName": "Joe",
+            "transactions": [{
+                "playerName": "Joe",
+                "price": 100,
+                "companyName": "Tosa Rail",
+                "action": "buy"
+            }],
+            "privateCompaniesOwnership": []
+        },
+        {
+            "publicCompaniesOwnership": [{
+                "sharePrice": 100,
+                "publicCompanyName": "Tosa Rail",
+                "sharesLeft": 8
+            }],
+            "balance": 1840,
+            "playerName": "Bob",
+            "transactions": [
+                {
+                    "playerName": "Bob",
+                    "price": 60,
+                    "companyName": "Dogo Rail",
+                    "action": "buy"
+                },
+                {
+                    "playerName": "Bob",
+                    "price": 100,
+                    "companyName": "Tosa Rail",
+                    "action": "buy"
+                }
+            ],
+            "privateCompaniesOwnership": [{
+                "privateCompanyName": "Dogo Rail",
+                "price": 60,
+                "isBought": true
+            }]
+        }
+    ],
+    "publicCompanies": [
+        {
+            "sharePrice": 100,
+            "publicCompanyName": "Tosa Rail",
+            "sharesLeft": 10
+        },
+        {
+            "sharePrice": 100,
+            "publicCompanyName": "Iya Rail",
+            "sharesLeft": 10
+        },
+        {
+            "sharePrice": 100,
+            "publicCompanyName": "Awa Rail",
+            "sharesLeft": 10
+        }
+    ]
+}
