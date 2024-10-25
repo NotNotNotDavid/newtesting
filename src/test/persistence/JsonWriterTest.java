@@ -8,6 +8,7 @@ import model.Transactions;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
@@ -55,22 +56,44 @@ class JsonWriterTest extends JsonTest {
     @Test
     void testWriterGeneralGame() {
         try {
+            // make game
+
             Game game = new Game();
             game.addAllCompanies();
-            game.addPlayer(new Player("Joe", 1000));
-            game.addPlayer(new Player("Bob", 2000));
+            PrivateCompany Dogo = new PrivateCompany("Dogo Rail", 60, false);
+            PublicCompany Tosa = new PublicCompany("Tosa Rail", 100, 10);
+
+            Player playerJoe = new Player("Joe", 1000);
+            Player playerBob = new Player("Bob", 2000);
+            game.addPlayer(playerJoe);
+            game.addPlayer(playerBob);
+
+            playerJoe.buyPublicCompany(Tosa);
+
+            playerBob.buyPrivateCompany(Dogo);
+            playerBob.buyPublicCompany(Tosa);
+
+            // write
             JsonWriter writer = new JsonWriter("./data/testWriterGeneralGame.json");
             writer.open();
             writer.write(game);
             writer.close();
 
+            // read
             JsonReader reader = new JsonReader("./data/testWriterGeneralGame.json");
             game = reader.read();
+
+            // test
             List<Player> players = game.getListOfPlayers();
-            checkGame(game, null, null, null, null);
+            // checkGame(game, game.getListOfPlayers(), game.getListofPrivateCompanies(), game.getListofPublicCompanies());
+
+            ArrayList<PublicCompany> testJoePublicList = new ArrayList<>();
+            testJoePublicList.add(Tosa);
+
             assertEquals(2, players.size());
-            assertEquals("Joe",  players.get(0).getName());
-            assertEquals("Bob",  players.get(1).getName());
+            assertEquals("Joe",  playerJoe.getName());
+            assertEquals("Bob",  playerBob.getName());
+            assertEquals(playerJoe.getPublicCompanies(), testJoePublicList);
 
         } catch (IOException e) {
             fail("Exception should not have been thrown");
