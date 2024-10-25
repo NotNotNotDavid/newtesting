@@ -23,6 +23,7 @@ public class GameTest {
     @BeforeEach
     public void runBefore() {
         testGame = new Game();
+        testGame.addAllCompanies();
 
         listOfPlayers = new ArrayList<Player>();
 
@@ -35,7 +36,6 @@ public class GameTest {
         listOfPrivateCompanies.add(dogo);
         listOfPrivateCompanies.add(uno);
         listOfPrivateCompanies.add(ehime);
-
     }
 
     @Test
@@ -71,12 +71,14 @@ public class GameTest {
     @Test
     public void testOtherEqualsGame() {
         Game testGame2 = new Game();
+        testGame2.addAllCompanies();
         assertTrue(testGame.equals(testGame2));
     }
 
     @Test
     public void testEachInstanceEqual() {
         Game testGame2 = new Game();
+        testGame2.addAllCompanies();
         assertTrue(testGame.getListOfPlayers().equals(testGame2.getListOfPlayers()));
     }
 
@@ -93,6 +95,7 @@ public class GameTest {
     @Test
     public void testNotEqualListOfPlayer() {
         Game testGameBad = new Game();
+        testGameBad.addAllCompanies();
         testGameBad.getListOfPlayers().add(null);
         assertFalse(testGame.equals(testGameBad));
     }
@@ -100,6 +103,7 @@ public class GameTest {
     @Test
     public void testNotEqualListOfPublicCompanies() {
         Game testGameBad = new Game();
+        testGameBad.addAllCompanies();
         testGameBad.getListofPublicCompanies().add(awa);
         assertFalse(testGame.equals(testGameBad));
     }
@@ -107,6 +111,7 @@ public class GameTest {
     @Test
     public void testNotEqualListOfPrivateCompanies() {
         Game testGameBad = new Game();
+        testGameBad.addAllCompanies();
         testGameBad.getListofPrivateCompanies().add(dogo);
         assertFalse(testGame.equals(testGameBad));
     }
