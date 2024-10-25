@@ -2,8 +2,11 @@ package model;
 
 import java.util.Objects;
 
+import org.json.JSONObject;
 
-public class PrivateCompany {
+import persistence.Writable;
+
+public class PrivateCompany implements Writable{
 
     String companyName;
     int price;
@@ -38,6 +41,10 @@ public class PrivateCompany {
         return isBought;
     }
 
+    public void setIsBought(boolean condition){
+        isBought = condition;
+    }
+
     // THIS PART IS LEARNED FROM OTHER SOURCES, SEE README FILE
     @Override
     public boolean equals(Object o) {
@@ -60,11 +67,10 @@ public class PrivateCompany {
         PrivateCompany p = (PrivateCompany) o;
 
         // this line is to comapre all the different instances of objects
-        return 
-        price == p.price &&
-        isBought == p.isBought &&
-        Objects.equals(companyName, p.companyName);
-    }   
+        return price == p.price &&
+                isBought == p.isBought &&
+                Objects.equals(companyName, p.companyName);
+    }
 
     // prints out private company in text form
     @Override
@@ -72,5 +78,13 @@ public class PrivateCompany {
         return "Private Company [" + companyName + "]";
     }
 
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("privateCompanyName", companyName);
+        json.put("price", price);
+        json.put("isBought", isBought);
+        return json;
+    }
 
 }

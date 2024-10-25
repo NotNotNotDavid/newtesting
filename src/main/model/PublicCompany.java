@@ -2,7 +2,11 @@ package model;
 
 import java.util.Objects;
 
-public class PublicCompany {
+import org.json.JSONObject;
+
+import persistence.Writable;
+
+public class PublicCompany implements Writable{
 
     String companyName;
     int sharePrice;
@@ -37,7 +41,6 @@ public class PublicCompany {
         return companyName;
     }
 
-
     // THIS PART IS LEARNED FROM OTHER SOURCES, SEE README FILE
     @Override
     public boolean equals(Object o) {
@@ -60,17 +63,24 @@ public class PublicCompany {
         PublicCompany p = (PublicCompany) o;
 
         // this line is to comapre all the different instances of objects
-        return 
-        sharePrice == p.sharePrice &&
-        sharesLeft == p.sharesLeft &&
-        Objects.equals(companyName, p.companyName);
+        return sharePrice == p.sharePrice &&
+                sharesLeft == p.sharesLeft &&
+                Objects.equals(companyName, p.companyName);
     }
-
 
     // prints out public company in text form
     @Override
     public String toString() {
         return "Public Company [" + companyName + "]";
+    }
+
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("publicCompanyName", companyName);
+        json.put("sharePrice", sharePrice);
+        json.put("sharesLeft", sharesLeft);
+        return json;
     }
 
 }

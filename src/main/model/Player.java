@@ -2,14 +2,20 @@ package model;
 
 import java.util.ArrayList;
 
-public class Player {
+import org.json.JSONArray;
+import org.json.JSONObject;
 
-    static final int STARTINGBALANCE = 1000;
+import persistence.Writable;
+
+public class Player implements Writable{
+
+    // static final int STARTINGBALANCE = 1000;
     int balance;
     String playerName;
     ArrayList<PublicCompany> publicCompaniesOwnership;
     ArrayList<PrivateCompany> privateCompaniesOwnership;
     ArrayList<Transactions> playerTransactions;
+
 
     /*
      * REQUIRES:
@@ -26,6 +32,7 @@ public class Player {
         publicCompaniesOwnership = new ArrayList<PublicCompany>();
         privateCompaniesOwnership = new ArrayList<PrivateCompany>();
         playerTransactions = new ArrayList<Transactions>();
+
 
     }
 
@@ -116,5 +123,46 @@ public class Player {
             }
         }
     }
+
+
+    @Override
+    public JSONObject toJson() {
+
+        JSONObject json = new JSONObject();
+        json.put("playerName", playerName);
+        json.put("balance", balance);
+
+        JSONArray publicCompaniesJson = new JSONArray();
+        for (PublicCompany pc : publicCompaniesOwnership) {
+            publicCompaniesJson.put(pc.toJson());
+        }
+        json.put("publicCompaniesOwnership", publicCompaniesJson);
+
+        JSONArray privateCompaniesJson = new JSONArray();
+        for (PrivateCompany pc : privateCompaniesOwnership) {
+            privateCompaniesJson.put(pc.toJson());
+        }
+        json.put("privateCompaniesOwnership", privateCompaniesJson);
+
+        JSONArray transactionsJson = new JSONArray();
+        for (Transactions t : playerTransactions) {
+            transactionsJson.put(t.toJson());
+        }
+        json.put("transactions", transactionsJson);
+
+        return json;
+    }
+
+    // public void addPublicCompany(PublicCompany publicCompany) {
+    //     this.publicCompanyList.add(publicCompany);
+    // }
+
+    // public void addPrivateCompany(PrivateCompany privateCompany) {
+    //     this.privateCompaniesOwnership.add(privateCompany);
+    // }
+
+    // public void addTransaction(Transactions transactionJsonObject) {
+    //     this.playerTransactionsList.add(transactionJsonObject);
+    // }
 
 }
