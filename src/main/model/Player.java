@@ -44,6 +44,19 @@ public class Player implements Writable {
         return balance;
     }
 
+    public void addTransaction(Transactions transaction){
+        playerTransactions.add(transaction);
+    }
+
+    public void addPublicCompany(PublicCompany publicCompany) {
+        publicCompaniesOwnership.add(publicCompany);
+    }
+
+    public void addPrivateCompany(PrivateCompany privateCompany) {
+        privateCompaniesOwnership.add(privateCompany);
+    }
+
+
     // EFFECTS: returns the transactions that this player made
     public ArrayList<Transactions> getTransactions() {
         return playerTransactions;
@@ -149,7 +162,6 @@ public class Player implements Writable {
             transactionsJson.put(t.toJson());
         }
         json.put("transactions", transactionsJson);
-
         return json;
     }
 

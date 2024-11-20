@@ -69,6 +69,7 @@ public class JsonReader {
         }
     }
 
+
     // EFFECTS: parses player from JSON object and returns it
     private Player parsePlayer(JSONObject jsonObject) {
         String playerName = jsonObject.getString("playerName");
@@ -87,6 +88,13 @@ public class JsonReader {
             JSONObject companyJson = (JSONObject) obj;
             addPrivateCompanies(player, companyJson);
         }
+
+        JSONArray transactionArray = jsonObject.getJSONArray("transactions");
+        for (Object obj : transactionArray) {
+            JSONObject transaction = (JSONObject) obj;
+            addTransactions(player, transaction);
+        }
+
 
         // JSONArray transactionArray = jsonObject.getJSONArray("transactions");
         // for (Object obj : transactionArray) {
@@ -113,11 +121,11 @@ public class JsonReader {
     private void addPublicCompanies(Player player, JSONObject jsonObject) {
 
         PublicCompany publicCompany = parsePublicCompany(jsonObject);
-        player.buyPublicCompany(publicCompany);
+        player.addPublicCompany(publicCompany);
+
         // JSONArray jsonArray = jsonObject.getJSONArray("publicCompaniesOwnership");
         // for (Object json : jsonArray) {
         // JSONObject nextCompany = (JSONObject) json;
-
         // }
     }
 
@@ -140,7 +148,7 @@ public class JsonReader {
 
         PrivateCompany privateCompany = parsePrivateCompany(jsonObject);
         privateCompany.setIsBought(false);
-        player.buyPrivateCompany(privateCompany);
+        player.addPrivateCompany(privateCompany);
 
         // JSONArray jsonArray = jsonObject.getJSONArray("privateCompaniesOwnership");
         // // stops here now
@@ -148,6 +156,12 @@ public class JsonReader {
         // JSONObject nextCompany = (JSONObject) json;
 
         // }
+    }
+
+    private void addTransactions(Player player, JSONObject jsonObject) {    
+        Transactions transactions = parseTransactions(jsonObject);
+        player.addTransaction(transactions);
+
     }
 
     // EFFECTS: parses PublicCompany from JSON object and returns it
@@ -166,26 +180,21 @@ public class JsonReader {
         return new PrivateCompany(name, price, isBought);
     }
 
+    // EFFECTS: parses Transactions from JSON object and returns it
+    private Transactions parseTransactions(JSONObject jsonObject) {
+        String name = jsonObject.getString("playerName");
+        int price = jsonObject.getInt("price");
+        String companyName = jsonObject.getString("companyName");
+        String action = jsonObject.getString("action");
+        return new Transactions(name, price, companyName, action);
+    }
+
+
+
     // // do i need this???
     // MODIFIES: game
     // EFFECTS: parses transactions from JSON objects and adds them to the player
-    // private void addTransactions(Player player, JSONObject jsonObject) {
-    //     JSONArray jsonArray = jsonObject.getJSONArray("Transactions");
-    //     for (Object json : jsonArray) {
-    //         JSONObject nextTransaction = (JSONObject) json;
-    //         Transactions transactions = parseTransactions(nextTransaction);
-    //         player.addTransaction(nextTransaction);
-    //     }
 
-    // }
 
-    // // EFFECTS: parses PrivateCompany from JSON object and returns it
-    // private Transactions parseTransactions(JSONObject jsonObject) {
-    //     String name = jsonObject.getString("name");
-    //     int price = jsonObject.getInt("price");
-    //     String companyName = jsonObject.getString("companyName");
-    //     String action = jsonObject.getString("action");
-    //     return new Transactions(name, price, companyName, action);
-    // }
 
 }
