@@ -14,6 +14,8 @@ import java.util.List;
 import java.util.Scanner;
 import javax.swing.*;
 
+import java.awt.*;
+
 public class LedgerAppGUI {
 
     private static final String JSON_STORE = "./data/game.json";
@@ -23,8 +25,10 @@ public class LedgerAppGUI {
     private JsonReader jsonReader;
 
     private JFrame frame;
+    private JTextArea textArea;
+    private JComboBox<Player> playerComboBox;
+    private JComboBox<String> transactionMenu; // i have no idea how this thing works bruh
 
-    // private JComboBox<String> transactionMenu;
     public static void main(String[] args) {
         new LedgerAppGUI();
     }
@@ -41,14 +45,38 @@ public class LedgerAppGUI {
     // EFFECTS: starts the ui process, creates frame
     private void initializeUI() {
         frame = new JFrame("Ledger App - Shikoku 1889");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // this is the thing that makes them close when closed
         frame.setSize(800, 600);
+
+        initializeButtons();
         frame.setVisible(true);
     }
 
+    // EFFECTS: Creates multiple buttons within a layout
+    private void initializeButtons() {
+        JPanel buttonPanel = new JPanel();
+        buttonPanel.setLayout(new GridLayout(6, 1));
+
+        JButton loadButton = new JButton("Load Game");
+        buttonPanel.add(loadButton);
+
+        JButton saveButton = new JButton("Save Game");
+        buttonPanel.add(saveButton);
+
+        JButton addPlayerButton = new JButton("Add New Player");
+        buttonPanel.add(addPlayerButton);
+
+        JButton viewPlayersButton = new JButton("View Selected Player");
+        buttonPanel.add(viewPlayersButton);
+
+        JButton quitButton = new JButton("Quit");
+        buttonPanel.add(quitButton);
+        frame.add(buttonPanel, BorderLayout.WEST); // this can be any direction, west looks good for now
+    }
+
     // EFFECTS: displays the avaliable player options
-    private void displayPlayerOptions() { 
+    private void displayPlayerOptions() {
 
     }
 
 }
-

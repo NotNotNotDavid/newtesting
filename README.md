@@ -50,6 +50,13 @@ https://docs.oracle.com/javase/tutorial/uiswing/components/frame.html
 
 for frames
 
+https://docs.oracle.com/javase/tutorial/uiswing/components/combobox.html
+
+for combo box
+
+https://docs.oracle.com/javase/tutorial/uiswing/layout/grid.html
+
+for gridlayouts
 
 
 
