@@ -46,6 +46,9 @@ https://www.javatpoint.com/override-equals-method-in-java
 
 This link helped me in figuring out what to return.
 
+https://docs.oracle.com/javase/tutorial/uiswing/components/frame.html
+
+for frames
 
 
 
