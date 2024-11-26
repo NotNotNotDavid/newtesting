@@ -44,7 +44,7 @@ public class Player implements Writable {
         return balance;
     }
 
-    public void addTransaction(Transactions transaction){
+    public void addTransaction(Transactions transaction) {
         playerTransactions.add(transaction);
     }
 

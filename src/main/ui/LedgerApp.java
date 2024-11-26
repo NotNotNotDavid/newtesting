@@ -58,7 +58,6 @@ public class LedgerApp {
         this.game = new Game();
         game.addAllCompanies();
 
-
     }
 
     // EFFECTS: displays and processes inputs for the main menu
@@ -113,7 +112,7 @@ public class LedgerApp {
         } catch (IOException e) {
             System.out.println("Unable to read from file: " + JSON_STORE);
         }
-        
+
         // players = game.getListOfPlayers();
     }
 
@@ -193,6 +192,7 @@ public class LedgerApp {
         System.out.println("Player " + player.getName());
     }
 
+    @SuppressWarnings("methodlength")
     // MODIFIES: this
     // EFFECTS: processes the user's input in the view flashcards menu
     public void handleViewCommands(String input, List<Player> players) {
@@ -235,7 +235,7 @@ public class LedgerApp {
                 System.out.println("Invalid option inputted. Please try again.");
         }
     }
-
+    
     // EFFECTS: displays all the transactions that the player made
     public void displayTransactions(Player player) {
         System.out.println("Answer: " + player.getTransactions().toString());
@@ -288,9 +288,11 @@ public class LedgerApp {
 
         for (PrivateCompany company : list) {
             if (company.getName().equalsIgnoreCase(input1)) {
-                player.buyPrivateCompany(company);
-                System.out.println("Player " + player.getName() + " bought " + company.getName()
-                        + " at $" + company.getPrice() + " !");
+                if (!(company.isBought())) {
+                    player.buyPrivateCompany(company);
+                    System.out.println("Player " + player.getName() + " bought " + company.getName()
+                            + " at $" + company.getPrice() + " !");
+                } 
                 return; // go back to menu
             }
         }
@@ -331,7 +333,7 @@ public class LedgerApp {
         for (PrivateCompany company : list) {
             if (company.getName().equalsIgnoreCase(input1)) {
                 player.sellPrivateCompany(company);
-                System.out.println("Player " + player.getName() + " sold " + company.getName() 
+                System.out.println("Player " + player.getName() + " sold " + company.getName()
                         + " at $" + company.getPrice() + " !");
                 return;
             }
