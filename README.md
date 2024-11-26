@@ -26,6 +26,17 @@ It is inteded to be used on the side by people who are playing *Shikoku 1889*, m
 - As a user, I want to be able to save some stuff in my ledger.
 - As a user, I want to be able to load my saved ledgers from file.
 
+## Instructions for End User:
+
+- You can add a new player into the game by pressing the "add new player" button and input their name and their starting balance
+- You can then view the player, by clicking on their name in the combo box, and seeing if that is the correct player displayed on the text area
+- You can then view their transactions, balances, ownership of both private and public companies, and buy and sell their private or public companies
+- Buying or selling a company requires the name of the company to be inputted.
+- You can locate the visual component by NOT DONE NOT DONE NOT DONE MAYBE SCREEN SAVER
+- You can save the state of my application by pressing the save button
+- You can reload the state of my application by pressing the load button.
+
+
 ## DISCLAMER AND SOURCES
 
 For the persistence package, the implementation and structure is heavily inspired by the JsonSerializationDemo:
