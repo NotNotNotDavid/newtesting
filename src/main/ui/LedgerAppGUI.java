@@ -30,6 +30,7 @@ public class LedgerAppGUI {
     private JFrame frame;
     private JTextArea textArea;
     private JComboBox<String> playerComboBox;
+    private JWindow splashWindow;
 
     public LedgerAppGUI() throws FileNotFoundException {
         jsonWriter = new JsonWriter(JSON_STORE);
@@ -37,9 +38,36 @@ public class LedgerAppGUI {
         players = new ArrayList<>();
         game = new Game();
         game.addAllCompanies();
+        showSplashScreen();
         initializeUI();
     }
 
+    private void showSplashScreen() {
+
+        splashWindow = new JWindow();
+        splashWindow.setLayout(new BorderLayout());
+
+        ImageIcon splashImage = new ImageIcon("images/startup_image.jpg");
+        Image image = splashImage.getImage();
+        Image scaledImage = image.getScaledInstance(600, 400, Image.SCALE_AREA_AVERAGING);
+        ImageIcon scaledIcon = new ImageIcon(scaledImage);
+
+        JLabel splashLabel = new JLabel(scaledIcon);
+        splashWindow.getContentPane().add(splashLabel, BorderLayout.CENTER);
+
+        splashWindow.setSize(600, 300);
+        splashWindow.setLocationRelativeTo(null);
+        splashWindow.setVisible(true);
+
+        new Timer(2000, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                splashWindow.setVisible(false);
+                splashWindow.dispose();
+                frame.setVisible(true);
+            }
+        }).start();
+    }
 
     // EFFECTS: initializes the ui with buttons and screen splash
     private void initializeUI() {
@@ -55,7 +83,8 @@ public class LedgerAppGUI {
 
         frame.add(scrollPane, BorderLayout.CENTER);
         frame.add(buttonPanel, BorderLayout.WEST);
-        frame.setVisible(true);
+        frame.setVisible(false);
+        frame.setLocationRelativeTo(null);
     }
 
     // EFFECTS: initializes all the buttons
@@ -153,9 +182,9 @@ public class LedgerAppGUI {
 
         playerComboBox.removeAllItems();
         for (Player player : players) {
-            playerNames.add(player.getName()); 
+            playerNames.add(player.getName());
         }
-    
+
         for (String playerName : playerNames) {
             playerComboBox.addItem(playerName);
         }

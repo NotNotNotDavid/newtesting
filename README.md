@@ -32,7 +32,7 @@ It is inteded to be used on the side by people who are playing *Shikoku 1889*, m
 - You can then view the player, by clicking on their name in the combo box, and seeing if that is the correct player displayed on the text area
 - You can then view their transactions, balances, ownership of both private and public companies, and buy and sell their private or public companies
 - Buying or selling a company requires the name of the company to be inputted.
-- You can locate the visual component by NOT DONE NOT DONE NOT DONE MAYBE SCREEN SAVER
+- You can locate the visual component by opening the application, where the splash screen will pop up.
 - You can save the state of my application by pressing the save button
 - You can reload the state of my application by pressing the load button.
 
@@ -69,6 +69,11 @@ https://docs.oracle.com/javase/tutorial/uiswing/layout/grid.html
 
 for gridlayouts
 
+https://www.geeksforgeeks.org/java-swing-jwindow-examples/
+https://stackoverflow.com/questions/16134549/how-to-make-a-splash-screen-for-gui
+https://docs.oracle.com/javase/tutorial/uiswing/misc/timer.html
+
+for JWindow and Splashscreen + timer for splash
 
 
 
