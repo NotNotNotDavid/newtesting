@@ -11,8 +11,10 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 import java.io.FileNotFoundException;
 import java.io.IOException;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,7 +28,6 @@ public class LedgerAppGUI {
     private JFrame frame;
     private JTextArea textArea;
     private JComboBox<String> playerComboBox;
-    private JComboBox<String> transactionMenu;
 
     public LedgerAppGUI() throws FileNotFoundException {
         jsonWriter = new JsonWriter(JSON_STORE);
@@ -37,6 +38,7 @@ public class LedgerAppGUI {
         initializeUI();
     }
 
+    // EFFECTS: initializes the ui with buttons and screen splash
     private void initializeUI() {
         frame = new JFrame("Ledger App - Shikoku 1889");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -54,7 +56,7 @@ public class LedgerAppGUI {
         frame.setVisible(true);
     }
 
-    // EFFECTS: Creates multiple buttons within a layout
+    // EFFECTS: initializes all the buttons
     private JPanel initializeButtons() {
         JPanel buttonPanel = new JPanel();
         buttonPanel.setLayout(new GridLayout(8, 1));
@@ -86,7 +88,7 @@ public class LedgerAppGUI {
         return buttonPanel;
     }
 
-    // EFFECTS: Button listener to load game
+    // EFFECTS: button listener to load game
     class LoadButtonListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             try {
@@ -100,7 +102,7 @@ public class LedgerAppGUI {
         }
     }
 
-    // EFFECTS: Button listener to save game
+    // EFFECTS: button listener to save game
     class SaveButtonListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             try {
@@ -143,8 +145,7 @@ public class LedgerAppGUI {
         }
     }
 
-
-    // EFFECTS: Update the player combo box to fulfill any additional players
+    // EFFECTS: update the player combo box to fulfill any additional players
     private void updatePlayerComboBox() {
         playerComboBox.removeAllItems();
         for (Player player : players) {
@@ -155,22 +156,33 @@ public class LedgerAppGUI {
     // EFFECTS: display player on the text field when pressed
     class ViewPlayersButtonListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-            Player selectedPlayer = (Player) playerComboBox.getSelectedItem();
-            if (selectedPlayer == null) {
+            String selectedPlayerName = (String) playerComboBox.getSelectedItem();
+            if (selectedPlayerName == null) {
                 textArea.setText("No player selected.\n");
                 return;
             }
 
-            StringBuilder playerInfo = new StringBuilder();
-            playerInfo.append("Name: ").append(selectedPlayer.getName())
-                    .append("\nBalance: ").append(selectedPlayer.getBalance())
-                    .append("\nPublic Companies: ").append(selectedPlayer.getPublicCompanies())
-                    .append("\nPrivate Companies: ").append(selectedPlayer.getPrivateCompanies())
-                    .append("\n");
+            Player selectedPlayer = null;
+            for (Player player : players) {
+                if (player.getName().equals(selectedPlayerName)) {
+                    selectedPlayer = player;
+                    break;
+                }
+            }
 
-            textArea.setText(playerInfo.toString());
+            if (selectedPlayer != null) {
+                StringBuilder playerInfo = new StringBuilder();
+                playerInfo.append("Name: ").append(selectedPlayer.getName())
+                        .append("\nBalance: ").append(selectedPlayer.getBalance())
+                        .append("\nPublic Companies: ").append(selectedPlayer.getPublicCompanies())
+                        .append("\nPrivate Companies: ").append(selectedPlayer.getPrivateCompanies());
 
-            displayPlayerOptions(selectedPlayer);
+                textArea.setText(playerInfo.toString());
+                displayPlayerOptions(selectedPlayer);
+
+            } else {
+                textArea.setText("Player not found.\n");
+            }
         }
     }
 
@@ -182,9 +194,6 @@ public class LedgerAppGUI {
                 "Buy Private Company",
                 "Sell Public Company",
                 "Sell Private Company",
-                // "View Balance",
-                // "Check Public Companies",
-                // "Check Private Companies",
         };
 
         String action = (String) JOptionPane.showInputDialog(frame,
@@ -197,7 +206,7 @@ public class LedgerAppGUI {
             handlePlayerAction(action, player);
         }
     }
-    
+
     // EFFECTS: Handle the action selected from the player options
     private void handlePlayerAction(String action, Player player) {
         switch (action) {
@@ -216,14 +225,32 @@ public class LedgerAppGUI {
             case "Sell Private Company":
                 sellPrivateCompany(player);
                 break;
-            default: // nothing
+            default: // nothing happens
                 break;
         }
     }
 
-    // EFFECTS: Chose Player
+    // EFFECTS: Chose player based on name
     class PlayerSelectionListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
+            String selectedPlayerName = (String) playerComboBox.getSelectedItem();
+
+            if (selectedPlayerName == null) {
+                textArea.setText("No player selected.\n");
+                return;
+            }
+
+            Player selectedPlayer = null;
+            for (Player player : players) {
+                if (player.getName().equals(selectedPlayerName)) {
+                    selectedPlayer = player;
+                    break;
+                }
+            }
+
+            if (selectedPlayer != null) {
+                textArea.setText("Selected Player: " + selectedPlayer.getName() + "\n");
+            }
         }
     }
 
@@ -232,6 +259,7 @@ public class LedgerAppGUI {
         textArea.append("Transactions: " + player.getTransactions() + "\n");
     }
 
+    // MODIFIES: company, player
     // EFFECTS: Buy Public Company
     private void buyPublicCompany(Player player) {
         String companyName = JOptionPane.showInputDialog(frame, "Enter Public Company Name:");
@@ -246,6 +274,7 @@ public class LedgerAppGUI {
         textArea.append("Company not found uh oh.\n");
     }
 
+    // MODIFIES: company, player
     // EFFECTS: Buy Private Company
     private void buyPrivateCompany(Player player) {
         String companyName = JOptionPane.showInputDialog(frame, "Enter Private Company Name:");
@@ -257,14 +286,15 @@ public class LedgerAppGUI {
                     textArea.append(player.getName() + " bought " + company.getName() + "!\n");
                     return;
                 } else {
-                    textArea.append("Company already bought.\n");
+                    textArea.append("Company already bought!!.\n");
                     return;
                 }
             }
         }
-        textArea.append("private Company not found.\n");
+        textArea.append("Private company not found.\n");
     }
 
+    // MODIFIES: company, player
     // EFFECTS: Sell Public Company
     private void sellPublicCompany(Player player) {
         String companyName = JOptionPane.showInputDialog(frame, "Enter Public Company Name to Sell:");
@@ -279,7 +309,8 @@ public class LedgerAppGUI {
         textArea.append("Company not found.\n");
     }
 
-    // EFFECTS: Sell Private Company
+    // MODIFIES: company, player
+    // EFFECTS: Sells Private Company
     private void sellPrivateCompany(Player player) {
         String companyName = JOptionPane.showInputDialog(frame, "Enter Private Company Name to Sell:");
         ArrayList<PrivateCompany> companies = game.getListofPrivateCompanies();
