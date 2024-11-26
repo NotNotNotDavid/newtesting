@@ -16,7 +16,9 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class LedgerAppGUI {
     private static final String JSON_STORE = "./data/game.json";
@@ -38,6 +40,7 @@ public class LedgerAppGUI {
         initializeUI();
     }
 
+
     // EFFECTS: initializes the ui with buttons and screen splash
     private void initializeUI() {
         frame = new JFrame("Ledger App - Shikoku 1889");
@@ -52,7 +55,6 @@ public class LedgerAppGUI {
 
         frame.add(scrollPane, BorderLayout.CENTER);
         frame.add(buttonPanel, BorderLayout.WEST);
-
         frame.setVisible(true);
     }
 
@@ -147,9 +149,15 @@ public class LedgerAppGUI {
 
     // EFFECTS: update the player combo box to fulfill any additional players
     private void updatePlayerComboBox() {
+        Set<String> playerNames = new HashSet<>();
+
         playerComboBox.removeAllItems();
         for (Player player : players) {
-            playerComboBox.addItem(player.getName());
+            playerNames.add(player.getName()); 
+        }
+    
+        for (String playerName : playerNames) {
+            playerComboBox.addItem(playerName);
         }
     }
 
@@ -175,13 +183,11 @@ public class LedgerAppGUI {
                 playerInfo.append("Name: ").append(selectedPlayer.getName())
                         .append("\nBalance: ").append(selectedPlayer.getBalance())
                         .append("\nPublic Companies: ").append(selectedPlayer.getPublicCompanies())
-                        .append("\nPrivate Companies: ").append(selectedPlayer.getPrivateCompanies());
+                        .append("\nPrivate Companies: ").append(selectedPlayer.getPrivateCompanies())
+                        .append("\n");
 
                 textArea.setText(playerInfo.toString());
                 displayPlayerOptions(selectedPlayer);
-
-            } else {
-                textArea.setText("Player not found.\n");
             }
         }
     }
