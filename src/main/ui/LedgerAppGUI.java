@@ -20,6 +20,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+// A GUI that has all the functionality of the LedgerApp but now with pictures and stuff!
 public class LedgerAppGUI {
     private static final String JSON_STORE = "./data/game.json";
     private List<Player> players;
@@ -32,6 +33,7 @@ public class LedgerAppGUI {
     private JComboBox<String> playerComboBox;
     private JWindow splashWindow;
 
+    // EFFECTS: creates the UI
     public LedgerAppGUI() throws FileNotFoundException {
         jsonWriter = new JsonWriter(JSON_STORE);
         jsonReader = new JsonReader(JSON_STORE);
@@ -42,6 +44,7 @@ public class LedgerAppGUI {
         initializeUI();
     }
 
+    // EFFECTS: displays the splash screen
     private void showSplashScreen() {
 
         splashWindow = new JWindow();
