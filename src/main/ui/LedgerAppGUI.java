@@ -1,5 +1,7 @@
 package ui;
 
+import model.Event;
+import model.EventLog;
 import model.Game;
 import model.Player;
 import model.PrivateCompany;
@@ -169,7 +171,7 @@ public class LedgerAppGUI {
                     int startingBalance = Integer.parseInt(balanceField.getText());
                     Player player = new Player(playerName, startingBalance);
                     players.add(player);
-                    game.getListOfPlayers().add(player);
+                    game.addPlayer(player);
                     updatePlayerComboBox();
                     textArea.setText("New player added: " + playerName + "\n");
                 } catch (NumberFormatException ex) {
@@ -362,10 +364,19 @@ public class LedgerAppGUI {
         textArea.append("Company not found.\n");
     }
 
+    // EFFECTS: prints all logged events to the console
+    private void printEventLog() {
+        for (Event next : EventLog.getInstance()) {
+            System.out.println(next.toString() + "\n\n");
+        }
+    }
+
     // EFFECTS: Exit Application
     class QuitButtonListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
+            printEventLog();
             System.exit(0);
         }
     }
+
 }

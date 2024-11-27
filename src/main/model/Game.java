@@ -34,6 +34,8 @@ public class Game implements Writable {
 
     }
 
+    // MODIFIES: this
+    // EFFECTS: adds all the companies to the game
     public void addAllCompanies() {
 
         listOfPublicCompanies.add(tosa);
@@ -49,6 +51,7 @@ public class Game implements Writable {
     // EFFECTS: Adds a player to the game
     public void addPlayer(Player player) {
         this.listOfPlayers.add(player);
+        EventLog.getInstance().logEvent(new Event("Added player: " + player.getName() + "with $" + player.getBalance()));
     }
 
     public ArrayList<PublicCompany> getListofPublicCompanies() {
