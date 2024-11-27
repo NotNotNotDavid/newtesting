@@ -38,40 +38,41 @@ It is inteded to be used on the side by people who are playing *Shikoku 1889*, m
 
 # Phase 4: Task 2 (An example of what events that occur in the program)
 
-Wed Nov 27 14:22:08 PST 2024
-Added player: Some R. Guywith $1000
+
+    Wed Nov 27 14:22:08 PST 2024
+    Added player: Some R. Guywith $1000
 
 
-Wed Nov 27 14:22:24 PST 2024
-Player: Some R. Guy bought public company: Public Company [Tosa Rail]
+    Wed Nov 27 14:22:24 PST 2024
+    Player: Some R. Guy bought public company: Public Company [Tosa Rail]
 
 
-Wed Nov 27 14:22:34 PST 2024
-Player: model.Player@35402bf3 bought private company: Private Company [Dogo Rail]
+    Wed Nov 27 14:22:34 PST 2024
+    Player: model.Player@35402bf3 bought private company: Private Company [Dogo Rail]
 
 
-Wed Nov 27 14:22:36 PST 2024
-Player: Some R. Guy accessed their transactions
+    Wed Nov 27 14:22:36 PST 2024
+    Player: Some R. Guy accessed their transactions
 
 
-Wed Nov 27 14:23:10 PST 2024
-Added player: Linear A. Isasawith $3500
+    Wed Nov 27 14:23:10 PST 2024
+    Added player: Linear A. Isasawith $3500
 
 
-Wed Nov 27 14:23:15 PST 2024
-Player: Linear A. Isasa accessed their transactions
+    Wed Nov 27 14:23:15 PST 2024
+    Player: Linear A. Isasa accessed their transactions
 
 
-Wed Nov 27 14:23:31 PST 2024
-Player: model.Player@408203c3 bought private company: Private Company [Uno Rail]
+    Wed Nov 27 14:23:31 PST 2024
+    Player: model.Player@408203c3 bought private company: Private Company [Uno Rail]
 
 
-Wed Nov 27 14:23:38 PST 2024
-Player: model.Player@408203c3 sold private company: Private Company [Uno Rail]
+    Wed Nov 27 14:23:38 PST 2024
+    Player: model.Player@408203c3 sold private company: Private Company [Uno Rail]
 
 
-Wed Nov 27 14:23:47 PST 2024
-Player: Linear A. Isasa accessed their transactions
+    Wed Nov 27 14:23:47 PST 2024
+    Player: Linear A. Isasa accessed their transactions
 
 
 ## DISCLAMER AND SOURCES
