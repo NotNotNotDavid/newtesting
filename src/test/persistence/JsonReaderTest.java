@@ -18,7 +18,7 @@ class JsonReaderTest {
     void testReaderNonExistentFile() {
         JsonReader reader = new JsonReader("./data/noSuchFile.json");
         try {
-            Game game = reader.read();
+            reader.read();
             fail("IOException expected");
         } catch (IOException e) {
             // pass
