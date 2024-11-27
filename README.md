@@ -40,7 +40,7 @@ It is inteded to be used on the side by people who are playing *Shikoku 1889*, m
 
 
     Wed Nov 27 14:22:08 PST 2024
-    Added player: Some R. Guywith $1000
+    Added player: Some R. Guy with $1000
 
 
     Wed Nov 27 14:22:24 PST 2024
@@ -48,7 +48,7 @@ It is inteded to be used on the side by people who are playing *Shikoku 1889*, m
 
 
     Wed Nov 27 14:22:34 PST 2024
-    Player: model.Player@35402bf3 bought private company: Private Company [Dogo Rail]
+    Player: Some R. Guy bought private company: Private Company [Dogo Rail]
 
 
     Wed Nov 27 14:22:36 PST 2024
@@ -56,7 +56,7 @@ It is inteded to be used on the side by people who are playing *Shikoku 1889*, m
 
 
     Wed Nov 27 14:23:10 PST 2024
-    Added player: Linear A. Isasawith $3500
+    Added player: Linear A. Isasa with $3500
 
 
     Wed Nov 27 14:23:15 PST 2024
@@ -64,11 +64,11 @@ It is inteded to be used on the side by people who are playing *Shikoku 1889*, m
 
 
     Wed Nov 27 14:23:31 PST 2024
-    Player: model.Player@408203c3 bought private company: Private Company [Uno Rail]
+    Player: Linear A. Isasa bought private company: Private Company [Uno Rail]
 
 
     Wed Nov 27 14:23:38 PST 2024
-    Player: model.Player@408203c3 sold private company: Private Company [Uno Rail]
+    Player: Linear A. Isasa sold private company: Private Company [Uno Rail]
 
 
     Wed Nov 27 14:23:47 PST 2024

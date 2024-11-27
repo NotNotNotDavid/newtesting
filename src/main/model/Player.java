@@ -94,7 +94,7 @@ public class Player implements Writable {
                 balance += company.getSharePrice();
                 company.sharesLeft++;
                 playerTransactions.add(new Transactions(playerName, company.sharePrice, company.companyName, "sell"));
-                EventLog.getInstance().logEvent(new Event("Player: " + this + " sold public company: " + company));
+                EventLog.getInstance().logEvent(new Event("Player: " + this.getName() + " sold public company: " + company));
 
             }
         }
@@ -115,7 +115,7 @@ public class Player implements Writable {
             balance -= company.getPrice();
             company.isBought = true;
             playerTransactions.add(new Transactions(playerName, company.price, company.companyName, "buy"));
-            EventLog.getInstance().logEvent(new Event("Player: " + this + " bought private company: " + company));
+            EventLog.getInstance().logEvent(new Event("Player: " + this.getName() + " bought private company: " + company));
 
         }
     }
@@ -135,7 +135,7 @@ public class Player implements Writable {
                 balance += company.getPrice();
                 company.isBought = false;
                 playerTransactions.add(new Transactions(playerName, company.price, company.companyName, "sell"));
-                EventLog.getInstance().logEvent(new Event("Player: " + this + " sold private company: " + company));
+                EventLog.getInstance().logEvent(new Event("Player: " + this.getName() + " sold private company: " + company));
 
             }
         }

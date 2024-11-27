@@ -51,7 +51,7 @@ public class Game implements Writable {
     // EFFECTS: Adds a player to the game
     public void addPlayer(Player player) {
         this.listOfPlayers.add(player);
-        EventLog.getInstance().logEvent(new Event("Added player: " + player.getName() + "with $" + player.getBalance()));
+        EventLog.getInstance().logEvent(new Event("Added player: " + player.getName() + " with $" + player.getBalance()));
     }
 
     public ArrayList<PublicCompany> getListofPublicCompanies() {
