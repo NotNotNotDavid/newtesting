@@ -36,43 +36,43 @@ It is inteded to be used on the side by people who are playing *Shikoku 1889*, m
 - You can save the state of my application by pressing the save button
 - You can reload the state of my application by pressing the load button.
 
-# Phase 4: Task 2 (An example of what events that occur in the program)
+## Phase 4: Task 2 (An example of what events that occur in the program)
 
 
-    Wed Nov 27 14:22:08 PST 2024
-    Added player: Some R. Guy with $1000
+    Wed Nov 27 21:59:10 PST 2024
+    Added player: Linear A. Isassa with $2000
 
 
-    Wed Nov 27 14:22:24 PST 2024
-    Player: Some R. Guy bought public company: Public Company [Tosa Rail]
+    Wed Nov 27 21:59:14 PST 2024
+    Player: Linear A. Isassa accessed their transactions: []
 
 
-    Wed Nov 27 14:22:34 PST 2024
-    Player: Some R. Guy bought private company: Private Company [Dogo Rail]
+    Wed Nov 27 21:59:19 PST 2024
+    Player: Linear A. Isassa bought public company: Public Company [Tosa Rail]
 
 
-    Wed Nov 27 14:22:36 PST 2024
-    Player: Some R. Guy accessed their transactions
+    Wed Nov 27 21:59:27 PST 2024
+    Player: Linear A. Isassa bought private company: Private Company [Dogo Rail]
 
 
-    Wed Nov 27 14:23:10 PST 2024
-    Added player: Linear A. Isasa with $3500
+    Wed Nov 27 21:59:33 PST 2024
+    Player: Linear A. Isassa sold public company: Public Company [Tosa Rail]
 
 
-    Wed Nov 27 14:23:15 PST 2024
-    Player: Linear A. Isasa accessed their transactions
+    Wed Nov 27 21:59:35 PST 2024
+    Player: Linear A. Isassa accessed their transactions: [Transaction[Player: Linear A. Isassa, Price: 100, Company: Tosa Rail, Action: buy], Transaction[Player: Linear A. Isassa, Price: 60, Company: Dogo Rail, Action: buy], Transaction[Player: Linear A. Isassa, Price: 100, Company: Tosa Rail, Action: sell]]
 
 
-    Wed Nov 27 14:23:31 PST 2024
-    Player: Linear A. Isasa bought private company: Private Company [Uno Rail]
+    Wed Nov 27 22:00:36 PST 2024
+    Added player: Evan T. Rally with $8888
 
 
-    Wed Nov 27 14:23:38 PST 2024
-    Player: Linear A. Isasa sold private company: Private Company [Uno Rail]
+    Wed Nov 27 22:00:46 PST 2024
+    Player: Evan T. Rally bought public company: Public Company [Tosa Rail]
 
 
-    Wed Nov 27 14:23:47 PST 2024
-    Player: Linear A. Isasa accessed their transactions
+    Wed Nov 27 22:00:52 PST 2024
+    Player: Evan T. Rally accessed their transactions: [Transaction[Player: Evan T. Rally, Price: 100, Company: Tosa Rail, Action: buy]]
 
 
 ## DISCLAMER AND SOURCES
