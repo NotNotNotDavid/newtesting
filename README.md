@@ -74,6 +74,9 @@ It is inteded to be used on the side by people who are playing *Shikoku 1889*, m
     Wed Nov 27 22:00:52 PST 2024
     Player: Evan T. Rally accessed their transactions: [Transaction[Player: Evan T. Rally, Price: 100, Company: Tosa Rail, Action: buy]]
 
+## Phase 4, Task 3 (Refactoring)
+
+After drawing out the UML diagram for my project, I noticed that there was alot... of coupling. A way to reduce this is to first remove the arrow from LedgerAppGUI to player, since game already has player and does not need an arrow to it. In hindsight, I added it stright from my LedgerApp and did not think too much about the design. Another thing I would refactor is making PrivateCompany and PublicCompany into one abstract Company class. Since both of these classes have very similar methods and implementation. They can easily be refactored into one abstract class. These are the most obvious things I would refactor, and I do not see the potential in any design patterns yet. 
 
 ## DISCLAMER AND SOURCES
 
