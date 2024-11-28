@@ -55,12 +55,6 @@ public class Game implements Writable {
                 + " with $" + player.getBalance()));
     }
 
-    // MODIFIES: this
-    // EFFECTS: adds a player to the game from the reader, no change, thus no logging required
-    public void addPlayer(Player player, int nothing) {
-        this.listOfPlayers.add(player);
-    }
-
     public ArrayList<PublicCompany> getListofPublicCompanies() {
         return listOfPublicCompanies;
     }
