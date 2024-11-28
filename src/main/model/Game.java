@@ -51,7 +51,14 @@ public class Game implements Writable {
     // EFFECTS: Adds a player to the game
     public void addPlayer(Player player) {
         this.listOfPlayers.add(player);
-        EventLog.getInstance().logEvent(new Event("Added player: " + player.getName() + " with $" + player.getBalance()));
+        EventLog.getInstance().logEvent(new Event("Added player: " + player.getName()
+                + " with $" + player.getBalance()));
+    }
+
+    // MODIFIES: this
+    // EFFECTS: adds a player to the game from the reader, no change, thus no logging required
+    public void addPlayer(Player player, int nothing) {
+        this.listOfPlayers.add(player);
     }
 
     public ArrayList<PublicCompany> getListofPublicCompanies() {
