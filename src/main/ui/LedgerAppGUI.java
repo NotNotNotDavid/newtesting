@@ -77,15 +77,23 @@ public class LedgerAppGUI {
     // EFFECTS: initializes the ui with buttons and screen splash
     private void initializeUI() {
         frame = new JFrame("Ledger App - Shikoku 1889");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE); // Don't close the window immediately
         frame.setSize(600, 400);
         frame.setLayout(new BorderLayout());
-
+    
+        frame.addWindowListener(new java.awt.event.WindowAdapter() {
+            @Override
+            public void windowClosing(java.awt.event.WindowEvent e) {
+                printEventLog();
+                System.exit(0); 
+            }
+        });
+        
         textArea = new JTextArea();
         textArea.setEditable(false);
         JScrollPane scrollPane = new JScrollPane(textArea);
         JPanel buttonPanel = initializeButtons();
-
+    
         frame.add(scrollPane, BorderLayout.CENTER);
         frame.add(buttonPanel, BorderLayout.WEST);
         frame.setVisible(false);
@@ -378,5 +386,7 @@ public class LedgerAppGUI {
             System.exit(0);
         }
     }
+
+    
 
 }

@@ -61,9 +61,10 @@ public class JsonReader {
     private void addPlayers(Game game, JSONObject jsonObject) {
         JSONArray jsonArray = jsonObject.getJSONArray("players");
         for (Object json : jsonArray) {
+            int testing = 0;
             JSONObject nextPlayer = (JSONObject) json;
             Player player = parsePlayer(nextPlayer);
-            game.addPlayer(player);
+            game.addPlayer(player, testing);
         }
     }
 
