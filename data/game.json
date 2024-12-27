@@ -18,38 +18,27 @@
     ],
     "players": [
         {
-            "publicCompaniesOwnership": [
-                {
-                    "sharePrice": 100,
-                    "publicCompanyName": "Tosa Rail",
-                    "sharesLeft": 6
-                },
-                {
-                    "sharePrice": 100,
-                    "publicCompanyName": "Tosa Rail",
-                    "sharesLeft": 6
-                }
-            ],
-            "balance": 220,
-            "playerName": "Joey",
+            "publicCompaniesOwnership": [],
+            "balance": 1940,
+            "playerName": "Linear A. Isassa",
             "transactions": [
                 {
-                    "playerName": "Joey",
+                    "playerName": "Linear A. Isassa",
                     "price": 100,
                     "companyName": "Tosa Rail",
                     "action": "buy"
                 },
                 {
-                    "playerName": "Joey",
-                    "price": 100,
-                    "companyName": "Tosa Rail",
-                    "action": "buy"
-                },
-                {
-                    "playerName": "Joey",
+                    "playerName": "Linear A. Isassa",
                     "price": 60,
                     "companyName": "Dogo Rail",
                     "action": "buy"
+                },
+                {
+                    "playerName": "Linear A. Isassa",
+                    "price": 100,
+                    "companyName": "Tosa Rail",
+                    "action": "sell"
                 }
             ],
             "privateCompaniesOwnership": [{
@@ -59,34 +48,19 @@
             }]
         },
         {
-            "publicCompaniesOwnership": [
-                {
-                    "sharePrice": 100,
-                    "publicCompanyName": "Tosa Rail",
-                    "sharesLeft": 6
-                },
-                {
-                    "sharePrice": 100,
-                    "publicCompanyName": "Tosa Rail",
-                    "sharesLeft": 6
-                }
-            ],
-            "balance": 9699,
-            "playerName": "Bobby",
-            "transactions": [
-                {
-                    "playerName": "Bobby",
-                    "price": 100,
-                    "companyName": "Tosa Rail",
-                    "action": "buy"
-                },
-                {
-                    "playerName": "Bobby",
-                    "price": 100,
-                    "companyName": "Tosa Rail",
-                    "action": "buy"
-                }
-            ],
+            "publicCompaniesOwnership": [{
+                "sharePrice": 100,
+                "publicCompanyName": "Tosa Rail",
+                "sharesLeft": 9
+            }],
+            "balance": 8788,
+            "playerName": "Evan T. Rally",
+            "transactions": [{
+                "playerName": "Evan T. Rally",
+                "price": 100,
+                "companyName": "Tosa Rail",
+                "action": "buy"
+            }],
             "privateCompaniesOwnership": []
         }
     ],
@@ -94,7 +68,7 @@
         {
             "sharePrice": 100,
             "publicCompanyName": "Tosa Rail",
-            "sharesLeft": 6
+            "sharesLeft": 9
         },
         {
             "sharePrice": 100,
