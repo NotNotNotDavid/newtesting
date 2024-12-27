@@ -6,7 +6,7 @@ import org.json.JSONObject;
 
 import persistence.Writable;
 
-public class PrivateCompany implements Writable {
+public class PrivateCompany extends Company implements Writable {
 
     String companyName;
     int price;
