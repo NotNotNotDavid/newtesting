@@ -1,5 +1,3 @@
-# David Huang's Personal Project
-
 ## General Overview:
 
 This project will be planned around a board game, *Shikoku 1889*.
@@ -9,6 +7,8 @@ This project will be planned around a board game, *Shikoku 1889*.
 The intended use of this application is to handle and record the cumbersome transactions that occur within the game. Players can view the history of all the transactions in the game at any time. 
 
 It is inteded to be used on the side by people who are playing *Shikoku 1889*, making the application run simultaneously to what is occuring on the board.
+
+This project was partially done within CPSC 210 class
 
 
 ## User Stories:
