@@ -48,6 +48,15 @@ public class PlayerTest {
         assertEquals(9, testPublicCompany1.getSharesLeft());
     }
 
+    @Test 
+    public void testGeneralBuyFunction() {
+        player1.buyCompany(testPublicCompany1);
+        testPublicCompaniesList.add(testPublicCompany1);
+        assertEquals(testPublicCompaniesList, player1.getPublicCompanies());
+        assertEquals(900, player1.getBalance());
+        assertEquals(9, testPublicCompany1.getSharesLeft());
+    }
+
     @Test
     public void testBuyMultipleCompanies() {
         player1.buyPublicCompany(testPublicCompany1);
@@ -147,7 +156,7 @@ public class PlayerTest {
     @Test
     public void testBuyPublicTransaction() {
         player1.buyPublicCompany(testPublicCompany1);
-        testPlayerTransactionsList.add(new Transactions(player1.getName(), testPublicCompany1.getSharePrice(),
+        testPlayerTransactionsList.add(new Transactions(player1.getName(), testPublicCompany1.getPrice(),
                 testPublicCompany1.getName(), "buy"));
         assertEquals(testPlayerTransactionsList, player1.getTransactions());
 
@@ -166,11 +175,11 @@ public class PlayerTest {
     public void testSellPublicTransaction() {
         player1.buyPublicCompany(testPublicCompany1);
         testPublicCompaniesList.add(testPublicCompany1);
-        testPlayerTransactionsList.add(new Transactions(player1.getName(), testPublicCompany1.getSharePrice(),
+        testPlayerTransactionsList.add(new Transactions(player1.getName(), testPublicCompany1.getPrice(),
                 testPublicCompany1.getName(), "buy"));
         assertEquals(testPlayerTransactionsList, player1.getTransactions());
         player1.sellPublicCompany(testPublicCompany1);
-        testPlayerTransactionsList.add(new Transactions(player1.getName(), testPublicCompany1.getSharePrice(),
+        testPlayerTransactionsList.add(new Transactions(player1.getName(), testPublicCompany1.getPrice(),
                 testPublicCompany1.getName(), "sell"));
         assertEquals(testPlayerTransactionsList, player1.getTransactions());
 

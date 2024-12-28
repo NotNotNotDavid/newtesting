@@ -8,8 +8,6 @@ import persistence.Writable;
 
 public class PrivateCompany extends Company implements Writable {
 
-    String companyName;
-    int price;
     boolean isBought;
 
     /*
@@ -24,17 +22,8 @@ public class PrivateCompany extends Company implements Writable {
      * amount of shares left is set to sharesLeft;
      */
     public PrivateCompany(String companyName, int price, boolean isBought) {
-        this.companyName = companyName;
-        this.price = price;
+        super(companyName, price);
         this.isBought = isBought;
-    }
-
-    public String getName() {
-        return companyName;
-    }
-
-    public int getPrice() {
-        return price;
     }
 
     public boolean isBought() {

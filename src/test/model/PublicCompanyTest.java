@@ -17,7 +17,7 @@ public class PublicCompanyTest {
     @Test
     public void testConstructor() {
         assertEquals("Tosa Rail", testPublicCompany.getName());
-        assertEquals(100, testPublicCompany.getSharePrice());
+        assertEquals(100, testPublicCompany.getPrice());
         assertEquals(10, testPublicCompany.getSharesLeft());
     }
 

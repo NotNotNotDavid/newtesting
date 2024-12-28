@@ -8,8 +8,6 @@ import persistence.Writable;
 
 public class PublicCompany extends Company implements Writable {
 
-    String companyName;
-    int sharePrice;
     int sharesLeft;
 
     /*
@@ -23,24 +21,15 @@ public class PublicCompany extends Company implements Writable {
      * amount of shares bought is set to sharesBought;
      * amount of shares left is set to sharesLeft;
      */
-    public PublicCompany(String companyName, int sharePrice, int sharesLeft) {
-        this.companyName = companyName;
-        this.sharePrice = sharePrice;
+    public PublicCompany(String companyName, int price, int sharesLeft) {
+        super(companyName, price);
         this.sharesLeft = sharesLeft;
-    }
-
-    public int getSharePrice() {
-        return sharePrice;
     }
 
     public int getSharesLeft() {
         return sharesLeft;
     }
-
-    public String getName() {
-        return companyName;
-    }
-
+    
     // THIS PART IS LEARNED FROM OTHER SOURCES, SEE README FILE
     @Override
     public boolean equals(Object o) {
@@ -63,7 +52,7 @@ public class PublicCompany extends Company implements Writable {
         PublicCompany p = (PublicCompany) o;
 
         // this line is to comapre all the different instances of objects
-        return sharePrice == p.sharePrice
+        return price == p.price
                 && sharesLeft == p.sharesLeft
                 && Objects.equals(companyName, p.companyName);
     }
@@ -78,7 +67,7 @@ public class PublicCompany extends Company implements Writable {
     public JSONObject toJson() {
         JSONObject json = new JSONObject();
         json.put("publicCompanyName", companyName);
-        json.put("sharePrice", sharePrice);
+        json.put("sharePrice", price);
         json.put("sharesLeft", sharesLeft);
         return json;
     }

@@ -71,15 +71,38 @@ public class Player implements Writable {
         return privateCompaniesOwnership;
     }
 
+    // MODIFIES: whatever the company type is
+    // EFFECTS: uses the helper methods, look for specifications there
+    public void buyCompany(Company company) {
+        if (company instanceof PublicCompany) {
+            buyPublicCompany((PublicCompany) company);
+        }
+        if (company instanceof PrivateCompany) {
+            buyPrivateCompany((PrivateCompany) company);
+        }
+    }
+
+    // MODIFIES: whatever the company type is
+    // EFFECTS: uses the helper methods, look for specifications there
+    public void sellCompany(Company company) {
+        if (company instanceof PublicCompany) {
+            sellPublicCompany((PublicCompany) company);
+        }
+        if (company instanceof PrivateCompany) {
+            sellPrivateCompany((PrivateCompany) company);
+        }
+    }
+
+
     // REQUIRES: and company.sharesLeft > 0
     // MODIFIES: this and the specified PublicCompany
     // EFFECTS: buys one share of the specified public company, company
     // sharesLeft--, decrease balance by sharePrice
     public void buyPublicCompany(PublicCompany company) {
         publicCompaniesOwnership.add(company);
-        balance -= company.getSharePrice();
+        balance -= company.getPrice();
         company.sharesLeft--;
-        playerTransactions.add(new Transactions(playerName, company.sharePrice, company.companyName, "buy"));
+        playerTransactions.add(new Transactions(playerName, company.price, company.companyName, "buy"));
         EventLog.getInstance().logEvent(new Event("Player: " + this.getName() + " bought public company: " + company));
     }
 
@@ -92,9 +115,9 @@ public class Player implements Writable {
         for (int i = 0; i < publicCompaniesOwnership.size(); i++) {
             if (publicCompaniesOwnership.get(i) == company) {
                 publicCompaniesOwnership.remove(i);
-                balance += company.getSharePrice();
+                balance += company.getPrice();
                 company.sharesLeft++;
-                playerTransactions.add(new Transactions(playerName, company.sharePrice, company.companyName, "sell"));
+                playerTransactions.add(new Transactions(playerName, company.price, company.companyName, "sell"));
                 EventLog.getInstance().logEvent(new Event("Player: " + this.getName() 
                         + " sold public company: " + company));
 

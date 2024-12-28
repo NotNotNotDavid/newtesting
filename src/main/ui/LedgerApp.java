@@ -268,7 +268,7 @@ public class LedgerApp {
             if (company.getName().equalsIgnoreCase(input1)) {
                 player.buyPublicCompany(company);
                 System.out.println("Player " + player.getName() + " bought " + company.getName() + " at $"
-                        + company.getSharePrice() + "!");
+                        + company.getPrice() + "!");
                 return; // return back to player page
             }
         }
@@ -313,7 +313,7 @@ public class LedgerApp {
             if (company.getName().equalsIgnoreCase(input1)) {
                 player.sellPublicCompany(company);
                 System.out.println("Player " + player.getName() + " sold " + company.getName() + " at $"
-                        + company.getSharePrice() + " !");
+                        + company.getPrice() + " !");
                 return; // go back to menu
             }
         }
